@@ -1,1 +1,1 @@
-## Simple landing page for describe my fav waifu, Asuka Tanaka :)
+## Simple landing page for describe my fav anime, Hibike Euphonium
