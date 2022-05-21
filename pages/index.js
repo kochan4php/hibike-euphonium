@@ -1,12 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Layout from "../layout";
 import Typed from "typed.js";
+import BASEURL from "../config/Jikan";
+import Layout from "../layout";
+import { Card } from "../components";
 
 const Home = ({ hibike }) => {
   const text = useRef(null);
+  const dataAnijme = hibike.data;
 
   useEffect(() => {
+    console.log(dataAnijme);
     const typed = new Typed(text.current, {
       strings: [
         "響け！ユーフォニアム",
@@ -60,6 +64,24 @@ const Home = ({ hibike }) => {
             </div>
           </div>
         </section>
+        <section className="min-w-full bg-slate-700 py-12 min-h-screen">
+          <div className="container">
+            <div>
+              <h1 className="text-center text-sky-300 font-semibold text-3xl md:text-4xl lg:text-5xl mt-8 mb-12">
+                List Anime
+              </h1>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-6 lg:gap-8 mx-auto">
+              {dataAnijme.map((data, index) => {
+                if (index === 11 || index === 6) {
+                  return;
+                }
+
+                return <Card data={data} />;
+              })}
+            </div>
+          </div>
+        </section>
       </div>
 
       <div className="min-h-screen bg-fixed bg-[url('/img/4.jpg')] md:bg-[url('/img/1.jpg')] bg-cover bg-center">
@@ -79,9 +101,7 @@ const Home = ({ hibike }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const response = await fetch(
-    "https://api.jikan.moe/v4/anime?q=hibike%20euphonium"
-  );
+  const response = await fetch(`${BASEURL}/anime?q=hibike%20euphonium`);
   const data = await response.json();
   const hibike = await data;
 
