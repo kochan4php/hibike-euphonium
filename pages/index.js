@@ -71,7 +71,7 @@ const Home = ({ hibike }) => {
                 List Anime
               </h1>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-6 lg:gap-8 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-5 lg:gap-6 mx-auto">
               {dataAnijme.map((data, index) => {
                 if (index === 11 || index === 6) {
                   return;
