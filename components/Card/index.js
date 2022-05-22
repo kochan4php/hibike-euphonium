@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const Card = ({ data }) => (
-  <div className="relative " key={data?.mal_id}>
+  <div className="relative">
     <Link href={`/detail/${data?.mal_id}`}>
-      <div className="rounded-md overflow-hidden shadow-lg shadow-slate-800 cursor-pointer hover:scale-105 hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 group bg-slate-600">
+      <div className="rounded-md overflow-hidden shadow-lg shadow-slate-800 cursor-pointer hover:scale-95 transition-all duration-300 group bg-slate-600">
         <img
           src={data?.images?.webp?.large_image_url}
           alt=""

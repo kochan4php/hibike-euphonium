@@ -1,2 +1,2 @@
-const BASEURL = "https://api.jikan.moe/v4";
-export default BASEURL;
+const JIKAN_API = "https://api.jikan.moe/v4";
+export default JIKAN_API;

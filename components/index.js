@@ -1,2 +1,4 @@
 import Card from "./Card";
-export { Card };
+import About from "./About";
+import Footer from "./Footer";
+export { Card, About, Footer };

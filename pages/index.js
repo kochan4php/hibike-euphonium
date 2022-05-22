@@ -1,16 +1,15 @@
-import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import Typed from "typed.js";
-import BASEURL from "../config/Jikan";
+import { About, Card, Footer } from "../components";
+import JIKAN_API from "../config/Jikan";
 import Layout from "../layout";
-import { Card } from "../components";
 
-const Home = ({ hibike }) => {
+const Home = ({ jikanAnime }) => {
   const text = useRef(null);
-  const dataAnijme = hibike.data;
+  const dataAnijme = jikanAnime.data;
 
   useEffect(() => {
-    console.log(dataAnijme);
     const typed = new Typed(text.current, {
       strings: [
         "響け！ユーフォニアム",
@@ -30,7 +29,7 @@ const Home = ({ hibike }) => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-fixed bg-[url('/img/3.jpg')] md:bg-[url('/img/2.jpg')] bg-cover bg-center">
+      <div className="min-h-screen bg-fixed bg-[url('/img/4.webp')] md:bg-[url('/img/2.webp')] bg-cover bg-center">
         <section className="min-h-screen min-w-full bg-slate-800 bg-opacity-50">
           <div className="container min-h-screen flex justify-center items-center">
             <h1
@@ -52,13 +51,14 @@ const Home = ({ hibike }) => {
                   Takarajimasha.
                 </p>
               </div>
-              <div className="w-full items-center h-full flex justify-center lg:justify-end">
+              <div className="w-full items-center h-full flex justify-center lg:justify-evenly">
                 <Image
-                  src="/img/asuka.png"
-                  width={500}
-                  height={500}
+                  src="/img/asuka2.webp"
+                  width={450}
+                  height={450}
                   objectPosition="center"
                   objectFit="cover"
+                  alt="Istri Saya"
                 />
               </div>
             </div>
@@ -71,29 +71,20 @@ const Home = ({ hibike }) => {
                 List Anime
               </h1>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-5 lg:gap-6 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-5 mx-auto">
               {dataAnijme.map((data, index) => {
-                if (index === 11 || index === 6) {
+                if (index === 11 || index === 8) {
                   return;
                 }
 
-                return <Card data={data} />;
+                return <Card data={data} key={data.mal_id} />;
               })}
             </div>
           </div>
         </section>
       </div>
-
-      <div className="min-h-screen bg-fixed bg-[url('/img/4.jpg')] md:bg-[url('/img/1.jpg')] bg-cover bg-center">
-        <section className="min-h-screen min-w-full bg-slate-800 bg-opacity-50">
-          <div className="container min-h-screen">
-            <div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
-        </section>
-      </div>
+      <About />
+      <Footer />
     </Layout>
   );
 };
@@ -101,13 +92,13 @@ const Home = ({ hibike }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const response = await fetch(`${BASEURL}/anime?q=hibike%20euphonium`);
-  const data = await response.json();
-  const hibike = await data;
+  const responseAnime = await fetch(`${JIKAN_API}/anime?q=hibike%20euphonium`);
+  const data = await responseAnime.json();
+  const jikanAnime = await data;
 
   return {
     props: {
-      hibike,
+      jikanAnime,
     },
   };
 };
