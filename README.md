@@ -1,6 +1,6 @@
 # 響け！ユーフォニアム
 
-Project Setup:
+### Project Setup:
 
 ```bash
 # clone the repository
