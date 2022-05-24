@@ -6,6 +6,10 @@
   font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
 }
 
+html {
+  @apply scroll-smooth;
+}
+
 body {
   @apply overflow-x-hidden;
 }

@@ -5,11 +5,11 @@ const Navbar = () => (
         <div className="w-32 h-12 flex items-center">
           <img src="/icon/logo-hibike-euphonium.png" width="90%" height="90%" />
         </div>
-        <ul className="flex flex-col justify-evenly items-center bergeser absolute bg-teal-500 -z-[999] w-screen h-screen top-0 nav-link transition-all duration-500">
+        <ul className="flex flex-col justify-evenly items-center bergeser absolute bg-teal-500 -z-[999] w-screen h-screen top-0 nav-link transition-all duration-500 md:static md:h-full md:w-[400px] md:translate-x-0 md:flex-row md:justify-between md:bg-transparent lg:w-[470px] md:z-[9999]">
           <li>
             <a
               href="#"
-              className="text-xl px-4 py-2 border-2 hover:border-sky-500 border-transparent rounded-md transition-all duration-200"
+              className="text-xl px-4 py-2 border-2 hover:border-sky-500 border-transparent rounded-md transition-all duration-200 md:text-lg md:border-0 md:hover:text-teal-700"
             >
               Home
             </a>
@@ -17,7 +17,7 @@ const Navbar = () => (
           <li>
             <a
               href="#"
-              className="text-xl px-4 py-2 border-2 hover:border-sky-500 border-transparent rounded-md transition-all duration-200"
+              className="text-xl px-4 py-2 border-2 hover:border-sky-500 border-transparent rounded-md transition-all duration-200 md:text-lg md:border-0 md:hover:text-teal-700"
             >
               About
             </a>
@@ -25,21 +25,21 @@ const Navbar = () => (
           <li>
             <a
               href="#"
-              className="text-xl px-4 py-2 border-2 hover:border-sky-500 border-transparent rounded-md transition-all duration-200"
+              className="text-xl px-4 py-2 border-2 hover:border-sky-500 border-transparent rounded-md transition-all duration-200 md:text-lg md:border-0 md:hover:text-teal-700"
             >
-              Github
+              List Anime
             </a>
           </li>
           <li>
             <a
               href="#"
-              className="text-xl px-4 py-2 border-2 hover:border-sky-500 border-transparent rounded-md transition-all duration-200"
+              className="text-xl px-4 py-2 border-2 hover:border-sky-500 border-transparent rounded-md transition-all duration-200 md:text-lg md:border-0 md:hover:text-teal-700"
             >
-              Anime
+              Github
             </a>
           </li>
         </ul>
-        <div className="menu-toggle cursor-pointer">
+        <div className="menu-toggle cursor-pointer md:hidden">
           <span className="hamburger-line origin-top-right"></span>
           <span className="hamburger-line"></span>
           <span className="hamburger-line origin-bottom-right"></span>
