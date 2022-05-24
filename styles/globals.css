@@ -5,3 +5,31 @@
 * {
   font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
 }
+
+body {
+  @apply overflow-x-hidden;
+}
+
+.bergeser {
+  @apply translate-x-full;
+}
+
+.bergeser-berlawanan {
+  @apply -translate-x-0;
+}
+
+.hamburger-line {
+  @apply w-8 h-[3px] rounded bg-white block my-[7px] transition duration-300;
+}
+
+.hamburger-active > span:nth-child(1) {
+  @apply -rotate-[40deg];
+}
+
+.hamburger-active > span:nth-child(2) {
+  @apply scale-0;
+}
+
+.hamburger-active > span:nth-child(3) {
+  @apply rotate-[40deg];
+}

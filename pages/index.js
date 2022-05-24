@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import { About, Card, Footer } from "../components";
 import JIKAN_API from "../config/Jikan";
-import Layout from "../layout";
 
 const Home = ({ jikanAnime }) => {
   const text = useRef(null);
@@ -28,7 +27,7 @@ const Home = ({ jikanAnime }) => {
   }, []);
 
   return (
-    <Layout>
+    <>
       <div className="min-h-screen bg-fixed bg-[url('/img/4.webp')] md:bg-[url('/img/2.webp')] bg-cover bg-center">
         <section className="min-h-screen min-w-full bg-slate-800 bg-opacity-50">
           <div className="container min-h-screen flex justify-center items-center">
@@ -85,7 +84,7 @@ const Home = ({ jikanAnime }) => {
       </div>
       <About />
       <Footer />
-    </Layout>
+    </>
   );
 };
 
