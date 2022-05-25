@@ -18,6 +18,10 @@ nav ul.slide {
   transform: translateX(0);
 }
 
+.navbar-fixed {
+  @apply fixed opacity-100 bg-slate-800 bg-opacity-30  backdrop-blur-2xl text-fuchsia-100;
+}
+
 .hamburger-line {
   @apply w-8 h-[3px] rounded bg-white block my-[7px] transition duration-300;
 }
