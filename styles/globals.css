@@ -14,6 +14,10 @@ body {
   @apply overflow-x-hidden;
 }
 
+nav ul.slide {
+  transform: translateX(0);
+}
+
 .hamburger-line {
   @apply w-8 h-[3px] rounded bg-white block my-[7px] transition duration-300;
 }
