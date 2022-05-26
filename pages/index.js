@@ -5,9 +5,10 @@ import Tilt from "react-parallax-tilt";
 import { About, Card, Footer } from "../components";
 import JIKAN_API from "../config/Jikan";
 
-const Home = ({ jikanAnime }) => {
+const Home = ({ jikanAnime, jikanNovel }) => {
   const text = useRef(null);
   const dataAnijme = jikanAnime.data;
+  const dataNovel = jikanNovel.data;
 
   useEffect(() => {
     const typed = new Typed(text.current, {
@@ -85,7 +86,44 @@ const Home = ({ jikanAnime }) => {
                   return;
                 }
 
-                return <Card data={data} key={data.mal_id} />;
+                return (
+                  <Card
+                    data={data}
+                    key={data.mal_id}
+                    bgcolor="bg-slate-700"
+                    shadowSize="shadow-lg"
+                    shadow="shadow-slate-800"
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </section>
+        <section
+          className="min-w-full bg-slate-800 py-12 min-h-screen"
+          id="novel"
+        >
+          <div className="container">
+            <div>
+              <h1 className="text-center text-sky-300 font-semibold text-3xl md:text-4xl lg:text-5xl mt-8 mb-12">
+                Novel
+              </h1>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto">
+              {dataNovel.map((data, index) => {
+                if (index === 4 || index === 5) {
+                  return;
+                }
+
+                return (
+                  <Card
+                    data={data}
+                    key={data.mal_id}
+                    bgcolor="bg-slate-800"
+                    shadowSize="shadow-md"
+                    shadow="shadow-slate-600"
+                  />
+                );
               })}
             </div>
           </div>
@@ -101,12 +139,16 @@ export default Home;
 
 export const getStaticProps = async () => {
   const responseAnime = await fetch(`${JIKAN_API}/anime?q=hibike%20euphonium`);
-  const data = await responseAnime.json();
-  const jikanAnime = await data;
+  const responseManga = await fetch(`${JIKAN_API}/manga?q=hibike%20euphonium`);
+  const dataAnime = await responseAnime.json();
+  const dataNovel = await responseManga.json();
+  const jikanAnime = await dataAnime;
+  const jikanNovel = await dataNovel;
 
   return {
     props: {
       jikanAnime,
+      jikanNovel,
     },
   };
 };

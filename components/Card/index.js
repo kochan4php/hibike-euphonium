@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Tilt from "react-parallax-tilt";
 
-const Card = ({ data }) => (
+const Card = ({ data, shadowSize, shadow, bgcolor }) => (
   <div className="relative">
     <Tilt perspective={700}>
       <Link href={`/detail/${data?.mal_id}`}>
-        <div className="rounded-md overflow-hidden shadow-lg shadow-slate-800 cursor-pointer group bg-slate-600">
+        <div
+          className={`rounded-md overflow-hidden cursor-pointer group ${shadowSize} ${bgcolor} ${shadow}`}
+        >
           <img
             src={data?.images?.webp?.large_image_url}
             alt=""

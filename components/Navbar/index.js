@@ -4,7 +4,7 @@ const routes = [
   { path: "#", name: "Home" },
   { path: "#about", name: "About" },
   { path: "#anime", name: "Anime" },
-  { path: "/", name: "Github" },
+  { path: "#novel", name: "Novel" },
 ];
 
 const Navbar = () => (
