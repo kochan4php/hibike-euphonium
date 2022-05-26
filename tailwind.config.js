@@ -8,7 +8,11 @@ module.exports = {
       padding: 16,
       center: true,
     },
-    extend: {},
+    extend: {
+      screens: {
+        "2xl": "1320px",
+      },
+    },
   },
   plugins: [require("tailwindcss"), require("autoprefixer")],
 };

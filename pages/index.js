@@ -130,7 +130,6 @@ const Home = ({ jikanAnime, jikanNovel }) => {
         </section>
       </div>
       <About />
-      <Footer />
     </>
   );
 };

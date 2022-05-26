@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Navbar } from "../components";
+import { Navbar, Footer } from "../components";
 import Layout from "../layout";
 import "../styles/globals.css";
 
@@ -29,6 +29,7 @@ function MyApp({ Component, pageProps }) {
     <Layout>
       <Navbar />
       <Component {...pageProps} />
+      <Footer />
     </Layout>
   );
 }

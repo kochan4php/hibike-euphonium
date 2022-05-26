@@ -21,9 +21,9 @@ const Card = ({ data, shadowSize, shadow, bgcolor }) => (
               <span className="text-yellow-600">{data.score && "⭐"}</span>
             </span>
           </div>
-          <h4 className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800">
+          <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
             {data?.title}
-          </h4>
+          </a>
         </div>
       </Link>
     </Tilt>
