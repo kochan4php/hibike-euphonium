@@ -12,12 +12,11 @@ function MyApp({ Component, pageProps }) {
     window.onscroll = function () {
       if (window.pageYOffset > 0) {
         navbar.classList.add("navbar-fixed");
+        navUl.classList.remove("bg-opacity-30");
       } else {
         navbar.classList.remove("navbar-fixed");
+        navUl.classList.add("bg-opacity-30");
       }
-
-      console.log(navbar);
-      console.log(window.pageYOffset);
     };
 
     menuToggle.addEventListener("click", function () {

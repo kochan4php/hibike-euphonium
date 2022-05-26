@@ -29,7 +29,10 @@ const Home = ({ jikanAnime }) => {
 
   return (
     <>
-      <div className="min-h-screen bg-fixed bg-[url('/img/4.webp')] md:bg-[url('/img/2.webp')] bg-cover bg-center">
+      <div
+        className="min-h-screen bg-fixed bg-[url('/img/4.webp')] md:bg-[url('/img/2.webp')] bg-cover bg-center"
+        id="home"
+      >
         <section className="min-h-screen min-w-full bg-slate-800 bg-opacity-50">
           <div className="container min-h-screen flex justify-center items-center">
             <h1
@@ -66,11 +69,14 @@ const Home = ({ jikanAnime }) => {
             </div>
           </div>
         </section>
-        <section className="min-w-full bg-slate-700 py-12 min-h-screen">
+        <section
+          className="min-w-full bg-slate-700 py-12 min-h-screen"
+          id="anime"
+        >
           <div className="container">
             <div>
               <h1 className="text-center text-sky-300 font-semibold text-3xl md:text-4xl lg:text-5xl mt-8 mb-12">
-                List Anime
+                Anime
               </h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-5 mx-auto">

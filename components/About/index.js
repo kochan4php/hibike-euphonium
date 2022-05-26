@@ -2,7 +2,10 @@ import Roll from "react-reveal/Roll";
 
 const About = () => (
   <div className="min-h-screen bg-fixed bg-[url('/img/3.webp')] md:bg-[url('/img/1.webp')] bg-cover bg-center">
-    <section className="min-h-screen min-w-full bg-slate-800 bg-opacity-60 py-20 md:py-0">
+    <section
+      className="min-h-screen min-w-full bg-slate-800 bg-opacity-60 py-20 md:py-0"
+      id="about"
+    >
       <div className="container min-h-screen flex items-center">
         <div className="mx-auto max-w-3xl">
           <div className="mb-16">
