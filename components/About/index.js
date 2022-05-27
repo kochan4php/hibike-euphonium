@@ -1,4 +1,4 @@
-import Roll from "react-reveal/Roll";
+import Bounce from "react-reveal/Bounce";
 
 const About = () => (
   <div className="min-h-screen bg-fixed bg-[url('/img/3.webp')] md:bg-[url('/img/1.webp')] bg-cover bg-center">
@@ -9,14 +9,14 @@ const About = () => (
       <div className="container min-h-screen flex items-center">
         <div className="mx-auto max-w-3xl">
           <div className="mb-16">
-            <Roll left>
+            <Bounce top>
               <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
                 About Hibike! Euphonium
               </h1>
-            </Roll>
+            </Bounce>
           </div>
           <div className="text-white">
-            <Roll right>
+            <Bounce right>
               <p className="text-md md:text-lg font-semibold mb-6">
                 Sound! Euphonium or Hibike! Euphonium is a Japanese novel
                 written by Ayano Takeda, published on December 5, 2013 by
@@ -24,8 +24,8 @@ const About = () => (
                 Concert Band, which is steadily improving thanks to the newly
                 appointed director&apos;s strict instruction.
               </p>
-            </Roll>
-            <Roll left>
+            </Bounce>
+            <Bounce left>
               <p className="text-md md:text-lg font-semibold mb-6">
                 The manga adaptation which is illustrated by Hami was serialized
                 on the Kono Manga ga Sugoi! Web website. An anime adaptation,
@@ -34,7 +34,7 @@ const About = () => (
                 Second season began airing in October 6, 2016 and finished in
                 December 29, 2016.
               </p>
-            </Roll>
+            </Bounce>
           </div>
         </div>
       </div>

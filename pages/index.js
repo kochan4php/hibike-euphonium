@@ -42,7 +42,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
             ></h1>
           </div>
         </section>
-        <section className="min-w-full bg-slate-800 text-white py-10 min-h-screen flex items-center">
+        <section className="min-w-full bg-slate-800 text-white py-10 flex items-center">
           <div className="container">
             <div className="flex flex-col lg:flex-row justify-center lg:justify-between w-full items-center lg:px-8 gap-4">
               <div className="w-full flex flex-col items-center lg:items-start min-h-full justify-center lg:justify-start">
@@ -70,13 +70,10 @@ const Home = ({ jikanAnime, jikanNovel }) => {
             </div>
           </div>
         </section>
-        <section
-          className="min-w-full bg-slate-700 py-12 min-h-screen"
-          id="anime"
-        >
+        <section className="min-w-full bg-slate-700 py-12" id="anime">
           <div className="container">
-            <div>
-              <h1 className="text-center text-sky-300 font-semibold text-3xl md:text-4xl lg:text-5xl mt-8 mb-12">
+            <div className="mt-8 mb-12">
+              <h1 className="text-center text-sky-300 font-semibold text-3xl md:text-4xl lg:text-5xl">
                 Anime
               </h1>
             </div>
@@ -99,13 +96,10 @@ const Home = ({ jikanAnime, jikanNovel }) => {
             </div>
           </div>
         </section>
-        <section
-          className="min-w-full bg-slate-800 py-12 min-h-screen"
-          id="novel"
-        >
+        <section className="min-w-full bg-slate-800 py-12" id="novel">
           <div className="container">
-            <div>
-              <h1 className="text-center text-sky-300 font-semibold text-3xl md:text-4xl lg:text-5xl mt-8 mb-12">
+            <div className="mt-8 mb-12">
+              <h1 className="text-center text-sky-300 font-semibold text-3xl md:text-4xl lg:text-5xl">
                 Novel
               </h1>
             </div>
