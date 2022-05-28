@@ -11,7 +11,6 @@ const routes = [
 
 const Navbar = () => {
   const router = useRouter();
-  console.log(router);
 
   return (
     <nav className="bg-transparent z-[999] fixed w-full transition-all duration-300 text-white border-b border-b-transparent">

@@ -2,65 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * {
-    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
-  }
-
-  html {
-    @apply scroll-smooth;
-  }
-
-  body {
-    @apply overflow-x-hidden;
-  }
-
-  .navbar-fixed {
-    @apply fixed opacity-100 bg-slate-800 bg-opacity-30  backdrop-blur-2xl text-fuchsia-100 border-b-slate-600;
-  }
-
-  .hamburger-line {
-    @apply w-8 h-[3px] rounded bg-white block my-[7px] transition duration-300;
-  }
-
-  nav ul.slide {
-    transform: translateX(0);
-  }
-
-  .hamburger-active > span:nth-child(1) {
-    @apply -rotate-[40deg];
-  }
-
-  .hamburger-active > span:nth-child(2) {
-    @apply scale-0 opacity-0;
-  }
-
-  .hamburger-active > span:nth-child(3) {
-    @apply rotate-[40deg];
-  }
+* {
+  font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+  @apply box-border;
 }
 
-@layer components {
-  .flip-card {
-    perspective: 1000px;
-  }
+html {
+  @apply scroll-smooth;
+}
 
-  .flip-card-inner {
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
+body {
+  @apply overflow-x-hidden;
+}
 
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
+.navbar-fixed {
+  @apply fixed opacity-100 bg-slate-800 bg-opacity-30  backdrop-blur-2xl text-fuchsia-100 border-b-slate-600;
+}
 
-  .flip-card-front,
-  .flip-card-back {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
+.hamburger-line {
+  @apply w-8 h-[3px] rounded bg-white block my-[7px] transition duration-300;
+}
 
-  .flip-card-back {
-    transform: rotateY(180deg);
-  }
+nav ul.slide {
+  transform: translateX(0);
+}
+
+.hamburger-active > span:nth-child(1) {
+  @apply -rotate-[40deg];
+}
+
+.hamburger-active > span:nth-child(2) {
+  @apply scale-0 opacity-0;
+}
+
+.hamburger-active > span:nth-child(3) {
+  @apply rotate-[40deg];
+}
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transition: transform 0.65s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
 }

@@ -56,7 +56,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
                 </p>
               </div>
               <div className="w-full items-center h-full flex justify-center lg:justify-evenly">
-                <Tilt perspective={700}>
+                <Tilt perspective={1700}>
                   <Image
                     src="/img/asuka2.webp"
                     width={450}
@@ -85,12 +85,30 @@ const Home = ({ jikanAnime, jikanNovel }) => {
 
                 return (
                   <Card
-                    data={data}
+                    path={`/anime/${data?.mal_id}`}
                     key={data.mal_id}
                     bgcolor="bg-slate-700"
                     shadowSize="shadow-lg"
                     shadow="shadow-slate-800"
-                  />
+                  >
+                    <img
+                      src={data?.images?.webp?.large_image_url}
+                      alt=""
+                      width="100%"
+                      heigth="100%"
+                    />
+                    <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 rounded-tl-md border bg-opacity-75 border-sky-500 z-50">
+                      <span>
+                        {data.score ? data?.score : "Unknown"}&nbsp;
+                        <span className="text-yellow-600">
+                          {data.score && "⭐"}
+                        </span>
+                      </span>
+                    </div>
+                    <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
+                      {data?.title}
+                    </a>
+                  </Card>
                 );
               })}
             </div>
@@ -111,12 +129,30 @@ const Home = ({ jikanAnime, jikanNovel }) => {
 
                 return (
                   <Card
-                    data={data}
+                    path={`/anime/${data?.mal_id}`}
                     key={data.mal_id}
                     bgcolor="bg-slate-800"
                     shadowSize="shadow-md"
                     shadow="shadow-slate-600"
-                  />
+                  >
+                    <img
+                      src={data?.images?.webp?.large_image_url}
+                      alt=""
+                      width="100%"
+                      heigth="100%"
+                    />
+                    <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 rounded-tl-md border bg-opacity-75 border-sky-500 z-50">
+                      <span>
+                        {data.score ? data?.score : "Unknown"}&nbsp;
+                        <span className="text-yellow-600">
+                          {data.score && "⭐"}
+                        </span>
+                      </span>
+                    </div>
+                    <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
+                      {data?.title}
+                    </a>
+                  </Card>
                 );
               })}
             </div>
