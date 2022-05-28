@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
+import { Loading, Text, Synopsis } from "../../components";
 import JIKAN_API from "../../config/Jikan";
 
 const DetailAnime = () => {
@@ -21,7 +22,6 @@ const DetailAnime = () => {
     };
 
     getDetailAnime();
-    console.log(detailAnime);
   }, []);
 
   return (
@@ -36,9 +36,7 @@ const DetailAnime = () => {
       </div>
 
       {isLoading ? (
-        <div className="container flex justify-center items-center min-h-screen">
-          <p className="text-xl">Loading...</p>
-        </div>
+        <Loading />
       ) : (
         <>
           {detailAnime?.trailer?.embed_url && (
@@ -72,17 +70,8 @@ const DetailAnime = () => {
                   {detailAnime?.title}
                 </h1>
                 <div className="text-lg">
-                  <p>
-                    <span className="font-semibold my-[2px] inline-block">
-                      Relase
-                    </span>{" "}
-                    : {detailAnime?.aired?.string}
-                  </p>
-                  <p>
-                    <span className="font-semibold my-[2px] inline-block">
-                      Genre
-                    </span>{" "}
-                    :{" "}
+                  <Text category="Release">{detailAnime?.aired?.string}</Text>
+                  <Text category="Genre">
                     {detailAnime?.themes.map((genre, index) => {
                       let coma;
                       detailAnime?.themes.length - 1 === index
@@ -96,35 +85,19 @@ const DetailAnime = () => {
                         </span>
                       );
                     })}
-                  </p>
-                  <p>
-                    <span className="font-semibold my-[2px] inline-block">
-                      Duration
-                    </span>{" "}
-                    : {detailAnime?.duration}
-                  </p>
-                  <p>
-                    <span className="font-semibold my-[2px] inline-block">
-                      Studio
-                    </span>{" "}
-                    : {detailAnime?.studios.map((studio) => studio.name)}
-                  </p>
-                  <p>
-                    <span className="font-semibold my-[2px] inline-block">
-                      Status
-                    </span>{" "}
-                    : {detailAnime?.status}
-                  </p>
+                  </Text>
+                  <Text category="Duration">{detailAnime?.duration}</Text>
+                  <Text category="Studio">
+                    {detailAnime?.studios.map((studio) => studio.name)}
+                  </Text>
+                  <Text category="Status"> {detailAnime?.status}</Text>
                 </div>
               </div>
             </div>
 
-            <div className="mt-10 lg:mt-0 md:pt-10 md:px-10 lg:pt-16 lg:px-16">
-              <h1 className="text-3xl mb-7">Synopsis</h1>
-              <p className="text-md md:text-lg text-justify md:text-left">
-                {detailAnime?.synopsis ? detailAnime?.synopsis : "No Synopsis"}
-              </p>
-            </div>
+            <Synopsis>
+              {detailAnime?.synopsis ? detailAnime?.synopsis : "No Synopsis"}
+            </Synopsis>
           </div>
         </>
       )}

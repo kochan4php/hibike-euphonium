@@ -129,7 +129,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
 
                 return (
                   <Card
-                    path={`/anime/${data?.mal_id}`}
+                    path={`/novel/${data?.mal_id}`}
                     key={data.mal_id}
                     bgcolor="bg-slate-800"
                     shadowSize="shadow-md"

@@ -17,16 +17,16 @@ const Characters = ({ hibikeEuphoniumCharacters }) => {
 
             return (
               <>
-                <div class="flip-card bg-transparent w-[200px] h-[300px] hidden lg:block">
-                  <div class="flip-card-inner relative h-full w-full text-center">
-                    <div class="flip-card-front absolute w-full h-full border border-slate-500 rounded-md overflow-hidden">
+                <div className="flip-card bg-transparent w-[200px] h-[300px] hidden lg:block">
+                  <div className="flip-card-inner relative h-full w-full text-center">
+                    <div className="flip-card-front absolute w-full h-full border border-slate-500 rounded-md overflow-hidden">
                       <img
                         src={data?.character?.images?.webp?.image_url}
                         alt=""
                         className="w-full h-full"
                       />
                     </div>
-                    <div class="flip-card-back absolute w-full h-full bg-slate-800 flex flex-col justify-center items-center rounded-md p-2">
+                    <div className="flip-card-back absolute w-full h-full bg-slate-800 flex flex-col justify-center items-center rounded-md p-2">
                       <h1 className="text-lg mb-2 font-bold">{name}</h1>
                       <h1 className="text-md mb-2">{data?.role}</h1>
                     </div>

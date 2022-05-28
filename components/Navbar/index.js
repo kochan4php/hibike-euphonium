@@ -23,12 +23,16 @@ const Navbar = () => {
           {routes.map(({ path, name }, index) => (
             <li key={index}>
               <Link href={path}>
-                <a className="hover:text-fuchsia-400 transition-all duration-200">
-                  <span
-                    className={router.asPath === path && "text-fuchsia-400"}
-                  >
-                    {name}
-                  </span>
+                <a className="transition-all duration-200 p-[1px] border-b-2 border-transparent hover:border-b-slate-200">
+                  {/* <span
+                    className={
+                      router.asPath === path
+                        ? "border-b-2 border-b-slate-200 transition-all duration-200"
+                        : undefined
+                    }
+                  > */}
+                  {name}
+                  {/* </span> */}
                 </a>
               </Link>
             </li>
