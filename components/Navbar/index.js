@@ -1,5 +1,5 @@
+import { useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const routes = [
   { path: "/", name: "Home" },
@@ -10,7 +10,33 @@ const routes = [
 ];
 
 const Navbar = () => {
-  const router = useRouter();
+  useEffect(() => {
+    const navbar = document.querySelector("nav");
+    const toggle = document.getElementById("toggle");
+    const navUl = document.querySelector("nav ul");
+
+    window.onscroll = function () {
+      if (window.pageYOffset > 0) {
+        navbar.classList.add("navbar-fixed");
+        navUl.classList.remove("bg-opacity-30");
+      } else {
+        navbar.classList.remove("navbar-fixed");
+        navUl.classList.add("bg-opacity-30");
+      }
+    };
+
+    toggle.addEventListener("click", function () {
+      this.classList.toggle("hamburger-active");
+      navUl.classList.toggle("slide");
+    });
+
+    window.addEventListener("click", function (e) {
+      if (e.target !== navUl && e.target !== toggle) {
+        navUl.classList.remove("slide");
+        toggle.classList.remove("hamburger-active");
+      }
+    });
+  }, []);
 
   return (
     <nav className="bg-transparent z-[999] fixed w-full transition-all duration-300 text-white border-b border-b-transparent">
@@ -24,26 +50,23 @@ const Navbar = () => {
             <li key={index}>
               <Link href={path}>
                 <a className="transition-all duration-200 p-[1px] border-b-2 border-transparent hover:border-b-slate-200">
-                  {/* <span
-                    className={
-                      router.asPath === path
-                        ? "border-b-2 border-b-slate-200 transition-all duration-200"
-                        : undefined
-                    }
-                  > */}
                   {name}
-                  {/* </span> */}
                 </a>
               </Link>
             </li>
           ))}
         </ul>
 
-        <button className="menu-toggle cursor-pointer sm:hidden z-[99]">
+        <div className="sm:hidden relative">
+          <input
+            type="checkbox"
+            id="toggle"
+            className="absolute w-[30px] h-[30px] z-[999] opacity-0 cursor-pointer"
+          />
           <span className="hamburger-line origin-top-right"></span>
           <span className="hamburger-line"></span>
           <span className="hamburger-line origin-bottom-right"></span>
-        </button>
+        </div>
       </div>
     </nav>
   );

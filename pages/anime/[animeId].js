@@ -22,7 +22,7 @@ const DetailAnime = () => {
     };
 
     getDetailAnime();
-  }, []);
+  }, [animeId]);
 
   return (
     <section className="min-w-full bg-slate-700 text-white pt-16 pb-6 min-h-screen">
@@ -79,7 +79,7 @@ const DetailAnime = () => {
                         : (coma = ", ");
 
                       return (
-                        <span>
+                        <span key={index}>
                           {genre.name}
                           {coma}
                         </span>

@@ -16,30 +16,39 @@ body {
   @apply overflow-x-hidden;
 }
 
+/* When Window On Scroll */
 .navbar-fixed {
   @apply fixed opacity-100 bg-slate-800 bg-opacity-30  backdrop-blur-2xl text-fuchsia-100 border-b-slate-600;
 }
+/* When Window On Scroll */
 
 .hamburger-line {
-  @apply w-8 h-[3px] rounded bg-white block my-[7px] transition duration-300;
+  @apply w-8 h-[3px] rounded bg-white block my-[7px] transition duration-300 -z-[9999];
 }
 
+#toggle {
+  transform: translateX(2px) translateY(3px);
+}
+
+/* When Hamburger Menu On Click */
 nav ul.slide {
   transform: translateX(0);
 }
 
-.hamburger-active > span:nth-child(1) {
+.hamburger-active ~ span:nth-child(2) {
   @apply -rotate-[40deg];
 }
 
-.hamburger-active > span:nth-child(2) {
+.hamburger-active ~ span:nth-child(3) {
   @apply scale-0 opacity-0;
 }
 
-.hamburger-active > span:nth-child(3) {
+.hamburger-active ~ span:nth-child(4) {
   @apply rotate-[40deg];
 }
+/* When Hamburger Menu On Click */
 
+/* Flip Card */
 .flip-card {
   perspective: 1000px;
 }
@@ -62,3 +71,38 @@ nav ul.slide {
 .flip-card-back {
   transform: rotateY(180deg);
 }
+/* Flip Card */
+
+/* Loading Animation */
+.loader {
+  @apply flex items-center gap-5 justify-center;
+}
+
+.bar {
+  @apply inline-block bg-slate-300 bg-opacity-50 rounded-full px-2 py-16 md:px-4 md:py-24;
+  animation: scale-up 1s linear infinite;
+}
+
+.bar:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.bar:nth-child(4) {
+  animation-delay: 0.75s;
+}
+
+@keyframes scale-up {
+  20% {
+    @apply bg-white;
+    transform: scaleY(1.5);
+  }
+
+  40% {
+    transform: scaleY(1);
+  }
+}
+/* Loading Animation */

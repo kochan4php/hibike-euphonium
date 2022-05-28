@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
-import { Loading, Text } from "../../components";
+import { Loading, Text, Synopsis } from "../../components";
 import JIKAN_API from "../../config/Jikan";
 
 const DetailNovel = () => {
@@ -19,11 +19,10 @@ const DetailNovel = () => {
       const finalData = await detailDataNovel.data;
       setDetailNovel(finalData);
       setIsLoading(false);
-      console.log(finalData);
     };
 
     getDetailNovel();
-  }, []);
+  }, [novelId]);
 
   return (
     <section className="min-w-full bg-slate-700 text-white pt-16 pb-6 min-h-screen">
@@ -70,7 +69,7 @@ const DetailNovel = () => {
                       : (coma = ", ");
 
                     return (
-                      <span>
+                      <span key={index}>
                         {genre.name}
                         {coma}
                       </span>

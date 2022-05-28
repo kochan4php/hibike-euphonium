@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import Typed from "typed.js";
 import Tilt from "react-parallax-tilt";
-import { About, Card, Footer } from "../components";
+import Typed from "typed.js";
+import { About, Card } from "../components";
 import JIKAN_API from "../config/Jikan";
 
 const Home = ({ jikanAnime, jikanNovel }) => {
@@ -58,9 +58,9 @@ const Home = ({ jikanAnime, jikanNovel }) => {
               <div className="w-full items-center h-full flex justify-center lg:justify-evenly">
                 <Tilt perspective={1700}>
                   <Image
-                    src="/img/asuka2.webp"
-                    width={450}
-                    height={450}
+                    src="/img/my-wife-asuka.webp"
+                    width={480}
+                    height={480}
                     objectPosition="center"
                     objectFit="cover"
                     alt="Istri Saya"

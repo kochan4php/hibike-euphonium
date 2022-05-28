@@ -1,6 +1,11 @@
 const Loading = () => (
   <div className="container flex justify-center items-center min-h-screen">
-    <p className="text-xl">Loading...</p>
+    <div className="loader max-w-md">
+      <span className="bar"></span>
+      <span className="bar"></span>
+      <span className="bar"></span>
+      <span className="bar"></span>
+    </div>
   </div>
 );
 

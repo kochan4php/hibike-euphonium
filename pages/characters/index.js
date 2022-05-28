@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Card } from "../../components";
 import JIKAN_API from "../../config/Jikan";
 
@@ -16,7 +17,7 @@ const Characters = ({ hibikeEuphoniumCharacters }) => {
             const name = data?.character?.name.split(", ").join(" ");
 
             return (
-              <>
+              <Fragment key={index}>
                 <div className="flip-card bg-transparent w-[200px] h-[300px] hidden lg:block">
                   <div className="flip-card-inner relative h-full w-full text-center">
                     <div className="flip-card-front absolute w-full h-full border border-slate-500 rounded-md overflow-hidden">
@@ -51,7 +52,7 @@ const Characters = ({ hibikeEuphoniumCharacters }) => {
                     </div>
                   </Card>
                 </div>
-              </>
+              </Fragment>
             );
           })}
         </div>
