@@ -26,7 +26,7 @@ const Navbar = () => {
               <Link href={path}>
                 <a className="hover:text-fuchsia-400 transition-all duration-200">
                   <span
-                    className={router.asPath === path ? "text-fuchsia-400" : ""}
+                    className={router.asPath === path && "text-fuchsia-400"}
                   >
                     {name}
                   </span>
