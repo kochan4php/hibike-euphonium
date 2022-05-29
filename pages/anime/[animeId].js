@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
-import { Loading, Text, Synopsis } from "../../components";
+import { Loading, Text, Synopsis, Button } from "../../components";
 import JIKAN_API from "../../config/Jikan";
 
 const DetailAnime = () => {
@@ -26,14 +26,7 @@ const DetailAnime = () => {
 
   return (
     <section className="min-w-full bg-slate-700 text-white pt-16 pb-6 min-h-screen">
-      <div className="container flex justify-start my-6">
-        <button
-          className="px-7 py-2 rounded-md bg-slate-800 text-slate-5 focus:ring focus:ring-sky-500 hover:bg-slate-700 hover:border-sky-500 border-2 border-transparent transition-all duration-300"
-          onClick={handleClick}
-        >
-          &laquo;&nbsp;Back
-        </button>
-      </div>
+      <Button onClick={handleClick}>&laquo;&nbsp;Back</Button>
 
       {isLoading ? (
         <Loading />

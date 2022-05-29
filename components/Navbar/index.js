@@ -45,7 +45,7 @@ const Navbar = () => {
           <img src="/icon/logo-hibike-euphonium.png" width="130" height="50" />
         </div>
 
-        <ul className="flex md:w-[60%] lg:w-[50%] absolute sm:static sm:flex-row sm:bg-transparent sm:justify-evenly md:justify-between lg:justify-evenly text-lg font-semibold right-0 flex-col bg-slate-800 bg-opacity-30 sm:bg-opacity-0 sm:backdrop-blur-none backdrop-blur-xl min-h-screen sm:min-h-0 top-0 justify-evenly items-center -z-[1] sm:z-[99] w-[75%] translate-x-[100%] sm:translate-x-0 transition-all duration-500">
+        <ul className="flex md:w-[60%] lg:w-[50%] absolute sm:static sm:flex-row sm:bg-transparent sm:justify-evenly md:justify-between lg:justify-evenly text-lg font-semibold right-0 flex-col bg-slate-800 bg-opacity-30 sm:bg-opacity-0 sm:backdrop-blur-none backdrop-blur-xl min-h-screen sm:min-h-0 top-0 justify-evenly items-center -z-[1] sm:z-[99] w-[73%] translate-x-[100%] sm:translate-x-0 transition-all duration-300">
           {routes.map(({ path, name }, index) => (
             <li key={index}>
               <Link href={path}>
