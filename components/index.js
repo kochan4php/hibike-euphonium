@@ -2,6 +2,8 @@ import Navbar from "./Navbar";
 import Intro from "./Intro";
 import Button from "./Button";
 import Card from "./Card";
+import CardImage from "./CardImage";
+import CardMobile from "./CardMobile";
 import FlipCardProfile from "./FlipCardProfile";
 import TitleSection from "./TitleSection";
 import Loading from "./Loading";
@@ -15,6 +17,8 @@ export {
   Button,
   Navbar,
   Card,
+  CardImage,
+  CardMobile,
   FlipCardProfile,
   Text,
   Loading,

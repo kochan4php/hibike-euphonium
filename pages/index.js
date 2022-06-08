@@ -1,6 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, Fragment } from "react";
 import Typed from "typed.js";
-import { About, Card, Intro, TitleSection } from "../components";
+import {
+  About,
+  Card,
+  Intro,
+  TitleSection,
+  CardImage,
+  CardMobile,
+} from "../components";
 import JIKAN_API from "../config/Jikan";
 
 const Home = ({ jikanAnime, jikanNovel }) => {
@@ -46,38 +53,60 @@ const Home = ({ jikanAnime, jikanNovel }) => {
         <section className="min-w-full bg-slate-700 py-12" id="anime">
           <div className="container">
             <TitleSection>Anime</TitleSection>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-5 mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 md:gap-6">
               {dataAnijme.map((data, index) => {
-                if (index === 11 || index === 8) {
+                if (index === 6 || index === 13) {
                   return;
                 }
 
                 return (
-                  <Card
-                    path={`/anime/${data?.mal_id}`}
-                    key={data.mal_id}
-                    bgcolor="bg-slate-700"
-                    shadowSize="shadow-lg"
-                    shadow="shadow-slate-800"
-                  >
-                    <img
-                      src={data?.images?.webp?.large_image_url}
-                      alt={data?.title}
-                      width="100%"
-                      heigth="100%"
-                    />
-                    <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 rounded-tl-md border bg-opacity-75 border-sky-500 z-50">
-                      <span>
-                        {data.score ? data?.score : "Unknown"}&nbsp;
-                        <span className="text-yellow-600">
-                          {data.score && "⭐"}
+                  <Fragment key={data?.mal_id}>
+                    <CardMobile
+                      bgimage={data?.images?.webp?.large_image_url}
+                      path={`/anime/${data?.mal_id}`}
+                    >
+                      <CardImage
+                        src={data?.images?.webp?.large_image_url}
+                        alt={data?.title}
+                      />
+                      <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 border bg-opacity-75 border-sky-500 z-50 rounded-br text-sm">
+                        <span>
+                          {data.score ? data?.score : "Unknown"}&nbsp;
+                          <span className="text-yellow-600">
+                            {data.score && "⭐"}
+                          </span>
                         </span>
-                      </span>
+                      </div>
+                      <a className="text-white group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block py-3 px-1 font-medium text-lg">
+                        {data?.title}
+                      </a>
+                    </CardMobile>
+
+                    <div className="hidden md:block">
+                      <Card
+                        path={`/anime/${data?.mal_id}`}
+                        bgcolor="bg-slate-700"
+                        shadowSize="shadow-lg"
+                        shadow="shadow-slate-800"
+                      >
+                        <CardImage
+                          src={data?.images?.webp?.large_image_url}
+                          alt={data?.title}
+                        />
+                        <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 rounded-tl-md border bg-opacity-75 border-sky-500 z-50">
+                          <span>
+                            {data.score ? data?.score : "Unknown"}&nbsp;
+                            <span className="text-yellow-600">
+                              {data.score && "⭐"}
+                            </span>
+                          </span>
+                        </div>
+                        <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
+                          {data?.title}
+                        </a>
+                      </Card>
                     </div>
-                    <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
-                      {data?.title}
-                    </a>
-                  </Card>
+                  </Fragment>
                 );
               })}
             </div>
@@ -86,38 +115,60 @@ const Home = ({ jikanAnime, jikanNovel }) => {
         <section className="min-w-full bg-slate-800 py-12" id="novel">
           <div className="container">
             <TitleSection>Novel</TitleSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 md:gap-6">
               {dataNovel.map((data, index) => {
                 if (index === 4 || index === 5) {
                   return;
                 }
 
                 return (
-                  <Card
-                    path={`/novel/${data?.mal_id}`}
-                    key={data.mal_id}
-                    bgcolor="bg-slate-800"
-                    shadowSize="shadow-md"
-                    shadow="shadow-slate-600"
-                  >
-                    <img
-                      src={data?.images?.webp?.large_image_url}
-                      alt={data?.title}
-                      width="100%"
-                      heigth="100%"
-                    />
-                    <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 rounded-tl-md border bg-opacity-75 border-sky-500 z-50">
-                      <span>
-                        {data.score ? data?.score : "Unknown"}&nbsp;
-                        <span className="text-yellow-600">
-                          {data.score && "⭐"}
+                  <Fragment key={data?.mal_id}>
+                    <CardMobile
+                      bgimage={data?.images?.webp?.large_image_url}
+                      path={`/novel/${data?.mal_id}`}
+                    >
+                      <CardImage
+                        src={data?.images?.webp?.large_image_url}
+                        alt={data?.title}
+                      />
+                      <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 border bg-opacity-75 border-sky-500 z-50 rounded-br text-sm">
+                        <span>
+                          {data.score ? data?.score : "Unknown"}&nbsp;
+                          <span className="text-yellow-600">
+                            {data.score && "⭐"}
+                          </span>
                         </span>
-                      </span>
+                      </div>
+                      <a className="text-white group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block py-3 px-1 font-medium text-lg">
+                        {data?.title}
+                      </a>
+                    </CardMobile>
+
+                    <div className="hidden md:block">
+                      <Card
+                        path={`/novel/${data?.mal_id}`}
+                        bgcolor="bg-slate-700"
+                        shadowSize="shadow-lg"
+                        shadow="shadow-slate-800"
+                      >
+                        <CardImage
+                          src={data?.images?.webp?.large_image_url}
+                          alt={data?.title}
+                        />
+                        <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 rounded-tl-md border bg-opacity-75 border-sky-500 z-50">
+                          <span>
+                            {data.score ? data?.score : "Unknown"}&nbsp;
+                            <span className="text-yellow-600">
+                              {data.score && "⭐"}
+                            </span>
+                          </span>
+                        </div>
+                        <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
+                          {data?.title}
+                        </a>
+                      </Card>
                     </div>
-                    <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
-                      {data?.title}
-                    </a>
-                  </Card>
+                  </Fragment>
                 );
               })}
             </div>

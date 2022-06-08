@@ -37,7 +37,7 @@ const DetailAnime = () => {
               <iframe
                 src={detailAnime?.trailer?.embed_url}
                 width="100%"
-                className="aspect-video"
+                className="aspect-[18/10] md:aspect-[18/9]"
               ></iframe>
             </div>
           )}
