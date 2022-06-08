@@ -51,7 +51,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
           <Intro />
         </section>
         <section className="min-w-full bg-slate-700 py-12" id="anime">
-          <div className="container">
+          <div className="container px-0 md:px-4">
             <TitleSection>Anime</TitleSection>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 md:gap-6">
               {dataAnijme.map((data, index) => {
@@ -113,9 +113,9 @@ const Home = ({ jikanAnime, jikanNovel }) => {
           </div>
         </section>
         <section className="min-w-full bg-slate-800 py-12" id="novel">
-          <div className="container">
+          <div className="container px-0 md:px-4">
             <TitleSection>Novel</TitleSection>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 md:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:gap-6">
               {dataNovel.map((data, index) => {
                 if (index === 4 || index === 5) {
                   return;
