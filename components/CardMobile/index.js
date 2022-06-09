@@ -7,7 +7,7 @@ const CardMobile = ({ bgimage, path, children }) => (
   >
     <div className="backdrop-blur bg-slate-800 bg-opacity-30 min-h-full">
       <Link href={path}>
-        <div className="cursor-pointer group px-3 sm:px-5 sm:pt-8 pt-6 pb-3 relative">
+        <div className="cursor-pointer group px-4 sm:px-5 sm:pt-8 pt-8 pb-3 relative">
           {children}
         </div>
       </Link>

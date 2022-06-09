@@ -10,7 +10,7 @@ const DetailNovel = () => {
   const [detailNovel, setDetailNovel] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleClick = () => router.push("/#novel");
+  const handleClick = () => router.back();
 
   useEffect(() => {
     const getDetailNovel = async () => {

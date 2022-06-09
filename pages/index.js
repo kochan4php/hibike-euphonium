@@ -54,55 +54,53 @@ const Home = ({ jikanAnime, jikanNovel }) => {
           <div className="container px-0 md:px-4">
             <TitleSection>Anime</TitleSection>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 md:gap-6">
-              {dataAnijme.map((data, index) => {
-                if (index === 6 || index === 13) {
-                  return;
-                }
+              {dataAnijme.map(({ mal_id, images, title, score }) => {
+                if (mal_id === 51994 || mal_id === 26111) return;
 
                 return (
-                  <Fragment key={data?.mal_id}>
+                  <Fragment key={mal_id}>
                     <CardMobile
-                      bgimage={data?.images?.webp?.large_image_url}
-                      path={`/anime/${data?.mal_id}`}
+                      bgimage={images?.webp?.large_image_url}
+                      path={`/anime/${mal_id}`}
                     >
                       <CardImage
-                        src={data?.images?.webp?.large_image_url}
-                        alt={data?.title}
+                        src={images?.webp?.large_image_url}
+                        alt={title}
                       />
                       <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 border bg-opacity-75 border-sky-500 z-50 rounded-br text-sm">
                         <span>
-                          {data.score ? data?.score : "Unknown"}&nbsp;
+                          {score ? score : "Unknown"}&nbsp;
                           <span className="text-yellow-600">
-                            {data.score && "⭐"}
+                            {score && "⭐"}
                           </span>
                         </span>
                       </div>
                       <a className="text-white group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block py-3 px-1 font-medium text-lg">
-                        {data?.title}
+                        {title}
                       </a>
                     </CardMobile>
 
                     <div className="hidden md:block">
                       <Card
-                        path={`/anime/${data?.mal_id}`}
+                        path={`/anime/${mal_id}`}
                         bgcolor="bg-slate-700"
                         shadowSize="shadow-lg"
                         shadow="shadow-slate-800"
                       >
                         <CardImage
-                          src={data?.images?.webp?.large_image_url}
-                          alt={data?.title}
+                          src={images?.webp?.large_image_url}
+                          alt={title}
                         />
                         <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 rounded-tl-md border bg-opacity-75 border-sky-500 z-50">
                           <span>
-                            {data.score ? data?.score : "Unknown"}&nbsp;
+                            {score ? score : "Unknown"}&nbsp;
                             <span className="text-yellow-600">
-                              {data.score && "⭐"}
+                              {score && "⭐"}
                             </span>
                           </span>
                         </div>
                         <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
-                          {data?.title}
+                          {title}
                         </a>
                       </Card>
                     </div>
@@ -116,58 +114,54 @@ const Home = ({ jikanAnime, jikanNovel }) => {
           <div className="container px-0 md:px-4">
             <TitleSection>Novel</TitleSection>
             <div className="grid grid-cols-2 sm:grid-cols-4 md:gap-6">
-              {dataNovel.map((data, index) => {
-                if (index === 4 || index === 5) {
-                  return;
-                }
+              {dataNovel.map(({ mal_id, images, title, score }) => {
+                if (mal_id === 129104 || mal_id === 10404) return;
 
                 return (
-                  <Fragment key={data?.mal_id}>
+                  <Fragment key={mal_id}>
                     <CardMobile
-                      bgimage={data?.images?.webp?.large_image_url}
-                      path={`/novel/${data?.mal_id}`}
+                      bgimage={images?.webp?.large_image_url}
+                      path={`/novel/${mal_id}`}
                     >
                       <CardImage
-                        src={data?.images?.webp?.large_image_url}
-                        alt={data?.title}
+                        src={images?.webp?.large_image_url}
+                        alt={title}
                       />
                       <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 border bg-opacity-75 border-sky-500 z-50 rounded-br text-sm">
                         <span>
-                          {data.score ? data?.score : "Unknown"}&nbsp;
+                          {score ? score : "Unknown"}&nbsp;
                           <span className="text-yellow-600">
-                            {data.score && "⭐"}
+                            {score && "⭐"}
                           </span>
                         </span>
                       </div>
                       <a className="text-white group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block py-3 px-1 font-medium text-lg">
-                        {data?.title}
+                        {title}
                       </a>
                     </CardMobile>
 
-                    <div className="hidden md:block">
-                      <Card
-                        path={`/novel/${data?.mal_id}`}
-                        bgcolor="bg-slate-700"
-                        shadowSize="shadow-lg"
-                        shadow="shadow-slate-800"
-                      >
-                        <CardImage
-                          src={data?.images?.webp?.large_image_url}
-                          alt={data?.title}
-                        />
-                        <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 rounded-tl-md border bg-opacity-75 border-sky-500 z-50">
-                          <span>
-                            {data.score ? data?.score : "Unknown"}&nbsp;
-                            <span className="text-yellow-600">
-                              {data.score && "⭐"}
-                            </span>
+                    <Card
+                      path={`/novel/${mal_id}`}
+                      bgcolor="bg-slate-700"
+                      shadowSize="shadow-lg"
+                      shadow="shadow-slate-800"
+                    >
+                      <CardImage
+                        src={images?.webp?.large_image_url}
+                        alt={title}
+                      />
+                      <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 rounded-tl-md border bg-opacity-75 border-sky-500 z-50">
+                        <span>
+                          {score ? score : "Unknown"}&nbsp;
+                          <span className="text-yellow-600">
+                            {score && "⭐"}
                           </span>
-                        </div>
-                        <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
-                          {data?.title}
-                        </a>
-                      </Card>
-                    </div>
+                        </span>
+                      </div>
+                      <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
+                        {title}
+                      </a>
+                    </Card>
                   </Fragment>
                 );
               })}

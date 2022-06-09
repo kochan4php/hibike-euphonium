@@ -10,7 +10,7 @@ const DetailAnime = () => {
   const [detailAnime, setDetailAnime] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleClick = () => router.push("/#anime");
+  const handleClick = () => router.back();
 
   useEffect(() => {
     const getDetailAnime = async () => {
