@@ -10,7 +10,7 @@ const DetailAnime = () => {
   const [detailAnime, setDetailAnime] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleClick = () => router.back();
+  const handleClick = () => router.push("/#anime");
 
   useEffect(() => {
     const getDetailAnime = async () => {
@@ -25,7 +25,7 @@ const DetailAnime = () => {
   }, [animeId]);
 
   return (
-    <section className="min-w-full bg-slate-700 text-white pt-16 pb-6 min-h-screen">
+    <section className="min-w-full bg-slate-800 text-white pt-16 pb-6 min-h-screen">
       <Button onClick={handleClick}>&laquo;&nbsp;Back</Button>
 
       {isLoading ? (
@@ -37,13 +37,13 @@ const DetailAnime = () => {
               <iframe
                 src={detailAnime?.trailer?.embed_url}
                 width="100%"
-                className="aspect-[18/10] md:aspect-[18/9]"
+                className="aspect-[18/10] md:aspect-[18/8]"
               ></iframe>
             </div>
           )}
           <div className="container my-10 p-4">
             <div className="grid grid-cols-1 md:grid-cols-3">
-              <div className="flex justify-center">
+              <div className="flex justify-center selection:bg-pink-500">
                 <Tilt perspective={700}>
                   <img
                     src={detailAnime?.images?.webp?.image_url}
@@ -54,15 +54,15 @@ const DetailAnime = () => {
               </div>
               <div className="flex flex-col justify-start md:col-start-2 md:col-end-4 p-4 md:py-0">
                 {detailAnime?.score && (
-                  <span className="gap-3 mt-2 md:mt-0 md:mb-4 text-2xl md:text-xl lg:text-2xl flex items-center">
+                  <span className="gap-3 mt-2 md:mt-0 md:mb-4 text-2xl md:text-xl lg:text-2xl flex items-center selection:bg-emerald-500 selection:text-emerald-900">
                     <span className="text-3xl text-yellow-500">⭐</span>{" "}
                     <span>{detailAnime?.score}</span>
                   </span>
                 )}
-                <h1 className="text-3xl lg:text-4xl font-semibold my-8 md:my-0 md:mb-5">
+                <h1 className="text-3xl lg:text-4xl font-semibold my-8 md:my-0 md:mb-5 selection:bg-violet-500 selection:text-violet-900">
                   {detailAnime?.title}
                 </h1>
-                <div className="text-lg">
+                <div className="text-lg selection:bg-pink-500 selection:text-pink-900">
                   <Text category="Release">{detailAnime?.aired?.string}</Text>
                   <Text category="Genre">
                     {detailAnime?.themes.map((genre, index) => {

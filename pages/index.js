@@ -142,9 +142,9 @@ const Home = ({ jikanAnime, jikanNovel }) => {
 
                     <Card
                       path={`/novel/${mal_id}`}
-                      bgcolor="bg-slate-700"
+                      bgcolor="bg-slate-900"
                       shadowSize="shadow-lg"
-                      shadow="shadow-slate-800"
+                      shadow="shadow-slate-600"
                     >
                       <CardImage
                         src={images?.webp?.large_image_url}

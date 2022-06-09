@@ -10,14 +10,14 @@ const About = () => (
         <div className="mx-auto max-w-3xl">
           <div className="mb-16">
             <Bounce top>
-              <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+              <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-semibold text-white selection:bg-fuchsia-500 selection:text-fuchsia-900">
                 About Hibike! Euphonium
               </h1>
             </Bounce>
           </div>
           <div className="text-white">
             <Bounce right>
-              <p className="text-md md:text-lg font-semibold mb-6">
+              <p className="text-md md:text-lg font-semibold mb-6 selection:bg-violet-500 selection:text-violet-900">
                 Hibike! Euphonium (響け! ユーフォニアム Hibike! Yūfoniamu)
                 adalah sebuah seri novel Jepang yang ditulis oleh Ayano Takeda.
                 Cerita ini mengambil tempat di Uji, Kyoto dan berfokus pada Klub
@@ -26,7 +26,7 @@ const About = () => (
               </p>
             </Bounce>
             <Bounce left>
-              <p className="text-md md:text-lg font-semibold mb-6">
+              <p className="text-md md:text-lg font-semibold mb-6 selection:bg-rose-500 selection:text-rose-900">
                 Sebuah manga adaptasi yang digambar oleh Hami mendapat
                 serialisasi di situs web Kono Manga ga Sugoi! Web. Kyoto
                 Animation memproduksi dua musim seri anime televisi adaptasi

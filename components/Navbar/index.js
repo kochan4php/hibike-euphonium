@@ -41,7 +41,7 @@ const Navbar = () => {
   return (
     <nav className="bg-transparent z-[999] fixed w-full transition-all duration-300 text-white border-b border-b-transparent">
       <div className="container flex justify-between items-center py-1 relative">
-        <div>
+        <div className="selection:bg-purple-500 selection:text-purple-900">
           <img
             src="/icon/logo-hibike-euphonium.png"
             width="130"
@@ -54,7 +54,7 @@ const Navbar = () => {
           {routes.map(({ path, name }, index) => (
             <li key={index}>
               <Link href={path}>
-                <a className="transition-all duration-200 p-[1px] border-b-2 border-transparent hover:border-b-slate-200">
+                <a className="transition-all duration-200 p-[1px] border-b-2 border-transparent hover:border-b-slate-200 selection:bg-emerald-500 selection:text-emerald-900">
                   {name}
                 </a>
               </Link>

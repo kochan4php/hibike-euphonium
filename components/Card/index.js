@@ -8,7 +8,7 @@ const Card = ({ children, path, shadowSize, shadow, bgcolor }) => (
         {path ? (
           <Link href={path}>
             <div
-              className={`rounded-md overflow-hidden min-h-full cursor-pointer group ${shadowSize} ${bgcolor} ${shadow}`}
+              className={`rounded-md overflow-hidden min-h-full cursor-pointer group selection:bg-pink-500 ${shadowSize} ${bgcolor} ${shadow}`}
             >
               {children}
             </div>

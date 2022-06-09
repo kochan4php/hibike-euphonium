@@ -10,7 +10,7 @@ const DetailNovel = () => {
   const [detailNovel, setDetailNovel] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleClick = () => router.back();
+  const handleClick = () => router.push("/#novel");
 
   useEffect(() => {
     const getDetailNovel = async () => {
@@ -25,7 +25,7 @@ const DetailNovel = () => {
   }, [novelId]);
 
   return (
-    <section className="min-w-full bg-slate-700 text-white pt-16 pb-6 min-h-screen">
+    <section className="min-w-full bg-slate-800 text-white pt-16 pb-6 min-h-screen">
       <Button onClick={handleClick}>&laquo;&nbsp;Back</Button>
 
       {isLoading ? (
@@ -33,7 +33,7 @@ const DetailNovel = () => {
       ) : (
         <div className="container my-10 p-4">
           <div className="grid grid-cols-1 md:grid-cols-3">
-            <div className="flex justify-center">
+            <div className="flex justify-center selection:bg-pink-500">
               <Tilt perspective={700}>
                 <img
                   src={detailNovel?.images?.webp?.image_url}
@@ -44,15 +44,15 @@ const DetailNovel = () => {
             </div>
             <div className="flex flex-col justify-start md:col-start-2 md:col-end-4 p-4 md:py-0">
               {detailNovel?.score && (
-                <span className="gap-3 mt-2 md:mt-0 md:mb-4 text-2xl md:text-xl lg:text-2xl flex items-center">
+                <span className="gap-3 mt-2 md:mt-0 md:mb-4 text-2xl md:text-xl lg:text-2xl flex items-center selection:bg-emerald-500 selection:text-emerald-900">
                   <span className="text-3xl text-yellow-500">⭐</span>
                   <span>{detailNovel?.score}</span>
                 </span>
               )}
-              <h1 className="text-3xl lg:text-4xl font-semibold my-8 md:my-0 md:mb-5">
+              <h1 className="text-3xl lg:text-4xl font-semibold my-8 md:my-0 md:mb-5 selection:bg-violet-500 selection:text-violet-900">
                 {detailNovel?.title}
               </h1>
-              <div className="text-lg">
+              <div className="text-lg selection:bg-pink-500 selection:text-pink-900">
                 <Text category="Release">{detailNovel?.published?.string}</Text>
                 <Text category="Genre">
                   {detailNovel?.themes.map((genre, index) => {

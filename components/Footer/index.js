@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 const Footer = () => (
-  <footer className="px-4 py-4 md:py-5 text-center text-white min-w-full bg-slate-800">
-    <p className="text-md md:text-lg lg:text-xl">
+  <footer className="px-4 py-4 md:py-5 text-center text-white min-w-full bg-gray-900">
+    <p className="text-md md:text-lg lg:text-xl selection:bg-purple-500 selection:text-purple-900">
       &copy; Copyright 2022 by{" "}
       <Link href="https://github.com/kochan4php">
         <a
