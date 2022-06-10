@@ -7,21 +7,32 @@ import JIKAN_API from "../../config/Jikan";
 const DetailAnime = () => {
   const router = useRouter();
   const { animeId } = router.query;
+
   const [detailAnime, setDetailAnime] = useState([]);
+  const [photosAnime, setPhotosAnime] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const handleClick = () => router.push("/#anime");
 
-  useEffect(() => {
-    const getDetailAnime = async () => {
-      const response = await fetch(`${JIKAN_API}/anime/${animeId}/full`);
-      const detailDataAnime = await response.json();
-      const finalData = await detailDataAnime.data;
-      setDetailAnime(finalData);
-      setIsLoading(false);
-    };
+  const getDetailAnime = async (id) => {
+    const request = await fetch(`${JIKAN_API}/anime/${id}/full`);
+    const response = await request.json();
+    const detailData = await response.data;
+    setDetailAnime(detailData);
+    setIsLoading(false);
+  };
 
-    getDetailAnime();
+  const getPhotoAnime = async (id) => {
+    const request = await fetch(`${JIKAN_API}/anime/${id}/pictures`);
+    const response = await request.json();
+    const photos = response.data;
+    setPhotosAnime(photos);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    getDetailAnime(animeId);
+    getPhotoAnime(animeId);
   }, [animeId]);
 
   return (
@@ -65,7 +76,7 @@ const DetailAnime = () => {
                 <div className="text-lg selection:bg-pink-500 selection:text-pink-900">
                   <Text category="Release">{detailAnime?.aired?.string}</Text>
                   <Text category="Genre">
-                    {detailAnime?.themes.map((genre, index) => {
+                    {detailAnime?.themes?.map((genre, index) => {
                       let coma;
                       detailAnime?.themes.length - 1 === index
                         ? (coma = "")
@@ -81,7 +92,7 @@ const DetailAnime = () => {
                   </Text>
                   <Text category="Duration">{detailAnime?.duration}</Text>
                   <Text category="Studio">
-                    {detailAnime?.studios.map((studio) => studio.name)}
+                    {detailAnime?.studios?.map((studio) => studio.name)}
                   </Text>
                   <Text category="Status"> {detailAnime?.status}</Text>
                 </div>
@@ -89,8 +100,35 @@ const DetailAnime = () => {
             </div>
 
             <Synopsis>
-              {detailAnime?.synopsis ? detailAnime?.synopsis : "No Synopsis"}
+              {detailAnime?.synopsis ? detailAnime?.synopsis : "No synopsis."}
             </Synopsis>
+
+            <div className="mt-8 md:pt-8 md:px-10 lg:px-16">
+              <h1 className="text-3xl md:text-4xl mb-7 selection:bg-emerald-500 selection:text-emerald-900">
+                Photos
+              </h1>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
+                {photosAnime !== [] ? (
+                  <>
+                    {photosAnime?.map((data, index) => (
+                      <div className="rounded-md overflow-hidden" key={index}>
+                        <img
+                          src={data?.webp?.large_image_url}
+                          alt=""
+                          width="100%"
+                          height="100%"
+                          className="rounded-md"
+                        />
+                      </div>
+                    ))}
+                  </>
+                ) : (
+                  <p className="text-md md:text-lg text-justify md:text-left selection:bg-green-500 selection:text-green-900">
+                    No photos.
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
         </>
       )}

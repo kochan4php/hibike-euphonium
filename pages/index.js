@@ -55,7 +55,8 @@ const Home = ({ jikanAnime, jikanNovel }) => {
             <TitleSection>Anime</TitleSection>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 md:gap-6">
               {dataAnijme.map(({ mal_id, images, title, score }) => {
-                if (mal_id === 51994 || mal_id === 26111) return;
+                if (mal_id === 51994 || mal_id === 51995 || mal_id === 26111)
+                  return;
 
                 return (
                   <Fragment key={mal_id}>
@@ -80,30 +81,28 @@ const Home = ({ jikanAnime, jikanNovel }) => {
                       </a>
                     </CardMobile>
 
-                    <div className="hidden md:block">
-                      <Card
-                        path={`/anime/${mal_id}`}
-                        bgcolor="bg-slate-700"
-                        shadowSize="shadow-lg"
-                        shadow="shadow-slate-800"
-                      >
-                        <CardImage
-                          src={images?.webp?.large_image_url}
-                          alt={title}
-                        />
-                        <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 rounded-tl-md border bg-opacity-75 border-sky-500 z-50">
-                          <span>
-                            {score ? score : "Unknown"}&nbsp;
-                            <span className="text-yellow-600">
-                              {score && "⭐"}
-                            </span>
+                    <Card
+                      path={`/anime/${mal_id}`}
+                      bgcolor="bg-slate-700"
+                      shadowSize="shadow-lg"
+                      shadow="shadow-slate-800"
+                    >
+                      <CardImage
+                        src={images?.webp?.large_image_url}
+                        alt={title}
+                      />
+                      <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 rounded-tl-md border bg-opacity-75 border-sky-500 z-50">
+                        <span>
+                          {score ? score : "Unknown"}&nbsp;
+                          <span className="text-yellow-600">
+                            {score && "⭐"}
                           </span>
-                        </div>
-                        <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
-                          {title}
-                        </a>
-                      </Card>
-                    </div>
+                        </span>
+                      </div>
+                      <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
+                        {title}
+                      </a>
+                    </Card>
                   </Fragment>
                 );
               })}

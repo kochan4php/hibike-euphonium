@@ -1,6 +1,6 @@
 const Synopsis = ({ children }) => (
   <div className="mt-10 lg:mt-0 md:pt-10 md:px-10 lg:pt-16 lg:px-16">
-    <h1 className="text-3xl mb-7 selection:bg-emerald-500 selection:text-emerald-900">
+    <h1 className="text-3xl md:text-4xl mb-7 selection:bg-emerald-500 selection:text-emerald-900">
       Synopsis
     </h1>
     <p className="text-md md:text-lg text-justify md:text-left selection:bg-green-500 selection:text-green-900">
