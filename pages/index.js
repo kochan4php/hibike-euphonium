@@ -8,6 +8,7 @@ import {
   CardImage,
   CardMobile,
   FloatingRating,
+  CardLink,
 } from "../components";
 import JIKAN_API from "../config/Jikan";
 
@@ -15,7 +16,6 @@ const Home = ({ jikanAnime, jikanNovel }) => {
   const text = useRef(null);
   const dataAnijme = jikanAnime.data;
   const dataNovel = jikanNovel.data;
-  console.log(dataAnijme);
 
   useEffect(() => {
     const typed = new Typed(text.current, {
@@ -72,9 +72,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
                         className="rounded"
                       />
                       {score && <FloatingRating rating={score} />}
-                      <a className="text-white group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block py-3 font-medium text-md">
-                        {title}
-                      </a>
+                      <CardLink py="py-4">{title}</CardLink>
                     </CardMobile>
 
                     <Card
@@ -88,9 +86,9 @@ const Home = ({ jikanAnime, jikanNovel }) => {
                         alt={title}
                       />
                       {score && <FloatingRating rating={score} />}
-                      <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
+                      <CardLink px="px-4" py="py-6">
                         {title}
-                      </a>
+                      </CardLink>
                     </Card>
                   </Fragment>
                 );
@@ -116,9 +114,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
                         alt={title}
                       />
                       {score && <FloatingRating rating={score} />}
-                      <a className="text-white group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block py-3 px-1 font-medium text-md">
-                        {title}
-                      </a>
+                      <CardLink py="py-4">{title}</CardLink>
                     </CardMobile>
 
                     <Card
@@ -132,9 +128,9 @@ const Home = ({ jikanAnime, jikanNovel }) => {
                         alt={title}
                       />
                       {score && <FloatingRating rating={score} />}
-                      <a className="text-slate-50 px-4 py-6 group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block">
+                      <CardLink px="px-4" py="py-6">
                         {title}
-                      </a>
+                      </CardLink>
                     </Card>
                   </Fragment>
                 );
@@ -150,7 +146,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
 
 export default Home;
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const requestAnime = await fetch(`${JIKAN_API}/anime?q=hibike%20euphonium`);
   const requestManga = await fetch(`${JIKAN_API}/manga?q=hibike%20euphonium`);
   const responseAnime = await requestAnime.json();

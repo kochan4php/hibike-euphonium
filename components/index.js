@@ -3,6 +3,7 @@ import Intro from "./Intro";
 import Button from "./Button";
 import Card from "./Card";
 import CardImage from "./CardImage";
+import CardLink from "./CardLink";
 import CardMobile from "./CardMobile";
 import FlipCardProfile from "./FlipCardProfile";
 import TitleSection from "./TitleSection";
@@ -20,6 +21,7 @@ export {
   Navbar,
   Card,
   CardImage,
+  CardLink,
   CardMobile,
   FlipCardProfile,
   FloatingRating,

@@ -22,7 +22,7 @@ const Characters = ({ data }) => {
       <div className="container text-white my-6 px-0 lg:px-4">
         <TitleSection>All Characters</TitleSection>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:gap-6 lg:flex lg:gap-7 lg:flex-wrap lg:justify-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:gap-7 md:flex md:flex-wrap md:justify-center">
           {dataCharacters.map(({ character, role }, index) => {
             const name = character?.name.split(", ").join(" ");
 
