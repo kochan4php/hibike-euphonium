@@ -2,18 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
-  @apply box-border;
-}
+@layer utilities {
+  * {
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    @apply box-border;
+  }
 
-html {
-  @apply scroll-smooth;
-  color-scheme: dark;
-}
+  html {
+    @apply scroll-smooth;
+    color-scheme: dark;
+  }
 
-body {
-  @apply overflow-x-hidden;
+  body {
+    @apply overflow-x-hidden;
+  }
 }
 
 /* When Window On Scroll */
@@ -26,13 +28,26 @@ body {
   @apply w-8 h-[3px] rounded bg-white block my-[7px] transition duration-300 -z-[9999];
 }
 
+.navbar-nav {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 #toggle {
   transform: translateX(2px) translateY(3px);
 }
 
 /* When Hamburger Menu On Click */
 nav ul.slide {
-  transform: translateX(0);
+  transform: translateX(-1rem);
+  opacity: 1;
 }
 
 .hamburger-active ~ span:nth-child(2) {
@@ -79,7 +94,7 @@ nav ul.slide {
 }
 
 .bar {
-  @apply inline-block bg-slate-300 bg-opacity-50 rounded-full px-2 py-16 md:px-4 md:py-24;
+  @apply inline-block bg-slate-300 bg-opacity-50 rounded-full px-2 py-16 md:px-2 md:py-24;
   animation: scale-up 1s linear infinite;
 }
 

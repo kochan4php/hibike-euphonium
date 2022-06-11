@@ -14,6 +14,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
   const text = useRef(null);
   const dataAnijme = jikanAnime.data;
   const dataNovel = jikanNovel.data;
+  console.log(dataAnijme);
 
   useEffect(() => {
     const typed = new Typed(text.current, {
@@ -53,8 +54,8 @@ const Home = ({ jikanAnime, jikanNovel }) => {
         <section className="min-w-full bg-slate-700 py-12" id="anime">
           <div className="container px-0 md:px-4">
             <TitleSection>Anime</TitleSection>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 md:gap-6">
-              {dataAnijme.map(({ mal_id, images, title, score }) => {
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 md:gap-6">
+              {dataAnijme.map(({ mal_id, images, title, score, status }) => {
                 if (mal_id === 51994 || mal_id === 51995 || mal_id === 26111)
                   return;
 
@@ -69,14 +70,17 @@ const Home = ({ jikanAnime, jikanNovel }) => {
                         alt={title}
                       />
                       <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 border bg-opacity-75 border-sky-500 z-50 rounded-br text-sm">
-                        <span>
-                          {score ? score : "Unknown"}&nbsp;
-                          <span className="text-yellow-600">
-                            {score && "⭐"}
+                        {score && (
+                          <span>
+                            {score}
+                            &nbsp;
+                            <span className="text-yellow-600">
+                              {score && "⭐"}
+                            </span>
                           </span>
-                        </span>
+                        )}
                       </div>
-                      <a className="text-white group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block py-3 px-1 font-medium text-lg">
+                      <a className="text-white group-hover:text-fuchsia-400 tracking-wide transition-colors duration-300 selection:bg-teal-500 selection:text-teal-800 block py-3 px-3 font-medium text-xl">
                         {title}
                       </a>
                     </CardMobile>
@@ -112,7 +116,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
         <section className="min-w-full bg-slate-800 py-12" id="novel">
           <div className="container px-0 md:px-4">
             <TitleSection>Novel</TitleSection>
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-4 md:gap-6">
               {dataNovel.map(({ mal_id, images, title, score }) => {
                 if (mal_id === 129104 || mal_id === 10404) return;
 
@@ -176,12 +180,12 @@ const Home = ({ jikanAnime, jikanNovel }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const responseAnime = await fetch(`${JIKAN_API}/anime?q=hibike%20euphonium`);
-  const responseManga = await fetch(`${JIKAN_API}/manga?q=hibike%20euphonium`);
-  const dataAnime = await responseAnime.json();
-  const dataNovel = await responseManga.json();
-  const jikanAnime = await dataAnime;
-  const jikanNovel = await dataNovel;
+  const requestAnime = await fetch(`${JIKAN_API}/anime?q=hibike%20euphonium`);
+  const requestManga = await fetch(`${JIKAN_API}/manga?q=hibike%20euphonium`);
+  const responseAnime = await requestAnime.json();
+  const responseManga = await requestManga.json();
+  const jikanAnime = await responseAnime;
+  const jikanNovel = await responseManga;
 
   return {
     props: {

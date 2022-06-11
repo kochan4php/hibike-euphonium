@@ -50,7 +50,7 @@ const Navbar = () => {
           />
         </div>
 
-        <ul className="flex md:w-[60%] lg:w-[50%] absolute sm:static sm:flex-row sm:bg-transparent sm:justify-evenly md:justify-between lg:justify-evenly text-lg font-semibold right-0 flex-col bg-slate-800 bg-opacity-30 sm:bg-opacity-0 sm:backdrop-blur-none backdrop-blur-xl min-h-screen sm:min-h-0 top-0 justify-evenly items-center -z-[1] sm:z-[99] w-[73%] translate-x-[100%] sm:translate-x-0 transition-all duration-300">
+        <ul className="flex absolute md:static text-lg font-semibold right-0 flex-col md:flex-row bg-slate-800 md:bg-transparent md:border-none md:h-0 md:z-[999] md:backdrop-blur-none backdrop-blur-lg h-[70vh] top-[75px] bottom-0 justify-evenly md:justify-between items-center -z-[199] w-[65%] md:w-[50%] lg:w-[40%] transition-all duration-300 md:rounded-none rounded-md border border-slate-600 navbar-nav">
           {routes.map(({ path, name }, index) => (
             <li key={index}>
               <Link href={path}>
@@ -62,7 +62,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className="sm:hidden relative">
+        <div className="md:hidden relative">
           <input
             type="checkbox"
             id="toggle"
