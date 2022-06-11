@@ -1,9 +1,11 @@
 const FloatingRating = ({ rating }) => (
-  <div className="absolute -top-0 -left-0 bg-slate-100 text-slate-800 px-2 py-1 border bg-opacity-75 border-sky-500 z-50 rounded-br text-sm">
-    <span>
-      {rating}&nbsp;
-      <span className="text-yellow-600">⭐</span>
-    </span>
+  <div className="absolute -top-0 -left-0 text-slate-800 border md:border-l-0 border-t-0 border-pink-500 z-50 rounded-br text-base">
+    <div className="min-w-full min-h-full bg-slate-200 backdrop-blur-lg px-2 py-1 bg-opacity-60">
+      <span>
+        {rating}&nbsp;
+        <span className="text-yellow-600">⭐</span>
+      </span>
+    </div>
   </div>
 );
 
