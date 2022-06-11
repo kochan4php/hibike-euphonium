@@ -1,27 +1,38 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
-import { Loading, Text, Synopsis, Button } from "../../components";
-import JIKAN_API from "../../config/Jikan";
+import action from "../../action";
+import { Button, Loading, Synopsis, Text, CardImage } from "../../components";
+
+const { getDetailNovel, getPhotoNovel } = action;
 
 const DetailNovel = () => {
   const router = useRouter();
   const { novelId } = router.query;
   const [detailNovel, setDetailNovel] = useState([]);
+  const [photosNovel, setPhotosNovel] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+
+  const getData = async (id) => {
+    const getDataNovel = await getDetailNovel(id);
+    const getPhotosNovel = await getPhotoNovel(id);
+
+    if (getDataNovel && getPhotosNovel) {
+      setDetailNovel(getDataNovel);
+      setPhotosNovel(getPhotosNovel);
+      setIsError(false);
+    } else {
+      setIsError(true);
+    }
+
+    setIsLoading(false);
+  };
 
   const handleClick = () => router.push("/#novel");
 
   useEffect(() => {
-    const getDetailNovel = async () => {
-      const response = await fetch(`${JIKAN_API}/manga/${novelId}/full`);
-      const detailDataNovel = await response.json();
-      const finalData = await detailDataNovel.data;
-      setDetailNovel(finalData);
-      setIsLoading(false);
-    };
-
-    getDetailNovel();
+    getData(novelId);
   }, [novelId]);
 
   return (
@@ -33,12 +44,12 @@ const DetailNovel = () => {
       ) : (
         <div className="container my-10 p-4">
           <div className="grid grid-cols-1 md:grid-cols-3">
-            <div className="flex justify-center selection:bg-pink-500">
-              <Tilt perspective={700}>
+            <div className="flex justify-center items-center selection:bg-pink-500">
+              <Tilt perspective={700} className="flex justify-center">
                 <img
-                  src={detailNovel?.images?.webp?.image_url}
+                  src={detailNovel?.images?.webp?.large_image_url}
                   alt={detailNovel?.title}
-                  className="rounded shadow shadow-slate-800"
+                  className="rounded shadow shadow-slate-800 w-3/5 md:w-full lg:w-3/5"
                 />
               </Tilt>
             </div>
@@ -80,6 +91,33 @@ const DetailNovel = () => {
           <Synopsis>
             {detailNovel?.synopsis ? detailNovel?.synopsis : "No Synopsis"}
           </Synopsis>
+
+          <div className="mt-8 md:pt-8 md:px-10 lg:px-16">
+            <h1 className="text-3xl md:text-4xl mb-7 selection:bg-emerald-500 selection:text-emerald-900">
+              Photos
+            </h1>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+              {photosNovel !== [] ? (
+                <>
+                  {photosNovel?.map((data, index) => (
+                    <div className="rounded overflow-hidden" key={index}>
+                      <CardImage
+                        src={data?.webp?.large_image_url}
+                        alt=""
+                        width="100%"
+                        height="100%"
+                        className="rounded selection:bg-pink-500"
+                      />
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <p className="text-md md:text-lg text-justify md:text-left selection:bg-green-500 selection:text-green-900">
+                  No photos.
+                </p>
+              )}
+            </div>
+          </div>
         </div>
       )}
     </section>

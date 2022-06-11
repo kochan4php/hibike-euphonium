@@ -11,6 +11,17 @@ const getDetailAnime = async (id) => {
   }
 };
 
+const getDetailNovel = async (id) => {
+  const request = await fetch(`${JIKAN_API}/manga/${id}/full`);
+
+  if (request.ok) {
+    const response = await request.json();
+    return response.data;
+  } else {
+    return;
+  }
+};
+
 const getPhotoAnime = async (id) => {
   const request = await fetch(`${JIKAN_API}/anime/${id}/pictures`);
 
@@ -22,4 +33,15 @@ const getPhotoAnime = async (id) => {
   }
 };
 
-export default { getDetailAnime, getPhotoAnime };
+const getPhotoNovel = async (id) => {
+  const request = await fetch(`${JIKAN_API}/manga/${id}/pictures`);
+
+  if (request.ok) {
+    const response = await request.json();
+    return response.data;
+  } else {
+    return;
+  }
+};
+
+export default { getDetailAnime, getDetailNovel, getPhotoAnime, getPhotoNovel };

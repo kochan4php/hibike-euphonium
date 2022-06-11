@@ -1,7 +1,14 @@
 import { useRouter } from "next/router";
 import { useEffect, useState, Fragment } from "react";
 import Tilt from "react-parallax-tilt";
-import { Loading, Text, Synopsis, Button, Card } from "../../components";
+import {
+  Loading,
+  Text,
+  Synopsis,
+  Button,
+  Card,
+  CardImage,
+} from "../../components";
 import action from "../../action";
 
 const { getDetailAnime, getPhotoAnime, getCharacterAnime } = action;
@@ -15,9 +22,9 @@ const DetailAnime = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
-  const getData = async () => {
-    const getDataAnime = await getDetailAnime(animeId);
-    const getPhotosAnime = await getPhotoAnime(animeId);
+  const getData = async (id) => {
+    const getDataAnime = await getDetailAnime(id);
+    const getPhotosAnime = await getPhotoAnime(id);
 
     if (getDataAnime && getPhotosAnime) {
       setDetailAnime(getDataAnime);
@@ -33,7 +40,7 @@ const DetailAnime = () => {
   const handleClick = () => router.push("/#anime");
 
   useEffect(() => {
-    getData();
+    getData(animeId);
   }, [animeId]);
 
   return (
@@ -49,7 +56,7 @@ const DetailAnime = () => {
               <iframe
                 src={detailAnime?.trailer?.embed_url}
                 width="100%"
-                className="aspect-[18/10] md:aspect-[18/8]"
+                className="aspect-[18/10] md:aspect-[18/8] selection:bg-violet-500"
               ></iframe>
             </div>
           )}
@@ -121,12 +128,12 @@ const DetailAnime = () => {
                       <>
                         {photosAnime?.map((data, index) => (
                           <div className="rounded overflow-hidden" key={index}>
-                            <img
+                            <CardImage
                               src={data?.webp?.large_image_url}
                               alt=""
                               width="100%"
                               height="100%"
-                              className="rounded"
+                              className="rounded selection:bg-pink-500"
                             />
                           </div>
                         ))}
