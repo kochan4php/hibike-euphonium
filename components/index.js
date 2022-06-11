@@ -9,8 +9,10 @@ import TitleSection from "./TitleSection";
 import Loading from "./Loading";
 import About from "./About";
 import Text from "./Text";
+import FloatingRating from "./FloatingRating";
 import Synopsis from "./Synopsis";
 import Footer from "./Footer";
+
 export {
   Intro,
   TitleSection,
@@ -20,6 +22,7 @@ export {
   CardImage,
   CardMobile,
   FlipCardProfile,
+  FloatingRating,
   Text,
   Loading,
   Synopsis,
