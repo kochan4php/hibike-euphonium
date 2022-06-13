@@ -87,6 +87,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
 
               return (
                 <LoopCard
+                  key={mal_id}
                   path="anime"
                   id={mal_id}
                   image={images?.webp?.large_image_url}
@@ -107,6 +108,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
 
               return (
                 <LoopCard
+                  key={mal_id}
                   path="novel"
                   id={mal_id}
                   image={images?.webp?.large_image_url}
