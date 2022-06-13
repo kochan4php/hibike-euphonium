@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Tilt from "react-parallax-tilt";
 
 const Intro = () => (
   <div className="container">
@@ -13,16 +12,14 @@ const Intro = () => (
         </span>
       </div>
       <div className="w-full items-center h-full flex justify-center lg:justify-evenly selection:bg-amber-700">
-        <Tilt perspective={1700}>
-          <Image
-            src="/img/my-wife-asuka.webp"
-            width={480}
-            height={480}
-            objectPosition="center"
-            objectFit="cover"
-            alt="Istri Saya"
-          />
-        </Tilt>
+        <Image
+          src="/img/my-wife-asuka.webp"
+          width={480}
+          height={480}
+          objectPosition="center"
+          objectFit="cover"
+          alt="Istri Saya"
+        />
       </div>
     </div>
   </div>

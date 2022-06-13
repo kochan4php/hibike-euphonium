@@ -12,6 +12,29 @@ import {
 } from "../components";
 import JIKAN_API from "../config/Jikan";
 
+const LoopCard = ({ id, image, title, score, path }) => (
+  <Fragment key={id}>
+    <CardMobile bgimage={image} path={`/${path}/${id}`}>
+      <CardImage src={image} alt={title} className="rounded" />
+      {score && <FloatingRating rating={score} />}
+      <CardLink py="py-4">{title}</CardLink>
+    </CardMobile>
+
+    <Card
+      path={`/${path}/${id}`}
+      bgcolor="bg-slate-700"
+      shadowSize="shadow-lg"
+      shadow="shadow-slate-800"
+    >
+      <CardImage src={image} alt={title} />
+      {score && <FloatingRating rating={score} />}
+      <CardLink px="px-4" py="py-6">
+        {title}
+      </CardLink>
+    </Card>
+  </Fragment>
+);
+
 const Home = ({ jikanAnime, jikanNovel }) => {
   const text = useRef(null);
   const dataAnijme = jikanAnime.data;
@@ -49,97 +72,61 @@ const Home = ({ jikanAnime, jikanNovel }) => {
             ></h1>
           </div>
         </section>
-        <section className="min-w-full bg-slate-800 text-white py-10 flex items-center">
-          <Intro />
-        </section>
-        <section className="min-w-full bg-slate-700 py-12" id="anime">
-          <div className="container px-0 md:px-4">
-            <TitleSection>Anime</TitleSection>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 md:gap-6">
-              {dataAnijme.map(({ mal_id, images, title, score }) => {
-                if (mal_id === 51994 || mal_id === 51995 || mal_id === 26111)
-                  return;
+      </div>
 
-                return (
-                  <Fragment key={mal_id}>
-                    <CardMobile
-                      bgimage={images?.webp?.large_image_url}
-                      path={`/anime/${mal_id}`}
-                    >
-                      <CardImage
-                        src={images?.webp?.large_image_url}
-                        alt={title}
-                        className="rounded"
-                      />
-                      {score && <FloatingRating rating={score} />}
-                      <CardLink py="py-4">{title}</CardLink>
-                    </CardMobile>
+      <section className="min-w-full bg-slate-800 text-white py-10 flex items-center">
+        <Intro />
+      </section>
+      <section className="min-w-full bg-slate-700 py-12" id="anime">
+        <div className="container px-0 md:px-4">
+          <TitleSection>Anime</TitleSection>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 md:gap-6">
+            {dataAnijme.map(({ mal_id, images, title, score }) => {
+              if (mal_id === 51994 || mal_id === 51995 || mal_id === 26111)
+                return;
 
-                    <Card
-                      path={`/anime/${mal_id}`}
-                      bgcolor="bg-slate-700"
-                      shadowSize="shadow-lg"
-                      shadow="shadow-slate-800"
-                    >
-                      <CardImage
-                        src={images?.webp?.large_image_url}
-                        alt={title}
-                      />
-                      {score && <FloatingRating rating={score} />}
-                      <CardLink px="px-4" py="py-6">
-                        {title}
-                      </CardLink>
-                    </Card>
-                  </Fragment>
-                );
-              })}
-            </div>
+              return (
+                <LoopCard
+                  path="anime"
+                  id={mal_id}
+                  image={images?.webp?.large_image_url}
+                  title={title}
+                  score={score}
+                />
+              );
+            })}
           </div>
-        </section>
-        <section className="min-w-full bg-slate-800 py-12" id="novel">
-          <div className="container px-0 md:px-4">
-            <TitleSection>Novel</TitleSection>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:gap-6">
-              {dataNovel.map(({ mal_id, images, title, score }) => {
-                if (mal_id === 129104 || mal_id === 10404) return;
+        </div>
+      </section>
+      <section className="min-w-full bg-slate-800 py-12" id="novel">
+        <div className="container px-0 md:px-4">
+          <TitleSection>Novel</TitleSection>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:gap-6">
+            {dataNovel.map(({ mal_id, images, title, score }) => {
+              if (mal_id === 129104 || mal_id === 10404) return;
 
-                return (
-                  <Fragment key={mal_id}>
-                    <CardMobile
-                      bgimage={images?.webp?.large_image_url}
-                      path={`/novel/${mal_id}`}
-                    >
-                      <CardImage
-                        src={images?.webp?.large_image_url}
-                        alt={title}
-                      />
-                      {score && <FloatingRating rating={score} />}
-                      <CardLink py="py-4">{title}</CardLink>
-                    </CardMobile>
-
-                    <Card
-                      path={`/novel/${mal_id}`}
-                      bgcolor="bg-slate-900"
-                      shadowSize="shadow-lg"
-                      shadow="shadow-slate-600"
-                    >
-                      <CardImage
-                        src={images?.webp?.large_image_url}
-                        alt={title}
-                      />
-                      {score && <FloatingRating rating={score} />}
-                      <CardLink px="px-4" py="py-6">
-                        {title}
-                      </CardLink>
-                    </Card>
-                  </Fragment>
-                );
-              })}
-            </div>
+              return (
+                <LoopCard
+                  path="novel"
+                  id={mal_id}
+                  image={images?.webp?.large_image_url}
+                  title={title}
+                  score={score}
+                />
+              );
+            })}
           </div>
+        </div>
+      </section>
+
+      <div className="min-h-screen bg-fixed bg-[url('/img/3.webp')] md:bg-[url('/img/1.webp')] bg-cover bg-center">
+        <section
+          className="min-h-screen min-w-full bg-slate-800 bg-opacity-60 py-20 md:py-0"
+          id="about"
+        >
+          <About />
         </section>
       </div>
-      <About />
     </>
   );
 };
