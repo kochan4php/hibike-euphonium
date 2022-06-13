@@ -13,7 +13,7 @@ import {
 import JIKAN_API from "../config/Jikan";
 
 const LoopCard = ({ id, image, title, score, path }) => (
-  <Fragment key={id}>
+  <>
     <CardMobile bgimage={image} path={`/${path}/${id}`}>
       <CardImage src={image} alt={title} className="rounded" />
       {score && <FloatingRating rating={score} />}
@@ -32,7 +32,7 @@ const LoopCard = ({ id, image, title, score, path }) => (
         {title}
       </CardLink>
     </Card>
-  </Fragment>
+  </>
 );
 
 const Home = ({ jikanAnime, jikanNovel }) => {
