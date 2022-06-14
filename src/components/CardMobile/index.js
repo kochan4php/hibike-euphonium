@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PropTypes from "prop-types";
 
 const CardMobile = ({ bgimage, path, children }) => (
   <div
@@ -18,5 +19,11 @@ const CardMobile = ({ bgimage, path, children }) => (
     </div>
   </div>
 );
+
+CardMobile.propTypes = {
+  children: PropTypes.node.isRequired,
+  bgimage: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+};
 
 export default CardMobile;

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Tilt from "react-parallax-tilt";
+import PropTypes from "prop-types";
 
 const Card = ({ children, path, shadowSize, shadowColor, bgcolor }) => (
   <div className="hidden md:block">
@@ -24,5 +25,13 @@ const Card = ({ children, path, shadowSize, shadowColor, bgcolor }) => (
     </div>
   </div>
 );
+
+Card.propTypes = {
+  children: PropTypes.node.isRequired,
+  path: PropTypes.string,
+  shadowSize: PropTypes.string.isRequired,
+  shadowColor: PropTypes.string.isRequired,
+  bgcolor: PropTypes.string.isRequired,
+};
 
 export default Card;

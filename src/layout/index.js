@@ -1,4 +1,5 @@
 import Head from "next/head";
+import PropTypes from "prop-types";
 
 const Layout = ({ children }) => (
   <div>
@@ -21,5 +22,9 @@ const Layout = ({ children }) => (
     {children}
   </div>
 );
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Layout;

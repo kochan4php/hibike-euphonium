@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Button = ({ children, onClick }) => (
   <div className="container flex justify-start my-5 lg:px-0">
     <button
@@ -8,5 +10,10 @@ const Button = ({ children, onClick }) => (
     </button>
   </div>
 );
+
+Button.propTypes = {
+  children: PropTypes.element.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export default Button;
