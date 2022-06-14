@@ -10,7 +10,7 @@ const Text = ({ children, category }) => (
 );
 
 Text.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
   category: PropTypes.string.isRequired,
 };
 

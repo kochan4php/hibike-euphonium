@@ -9,7 +9,7 @@ const FlipCardProfile = ({ children }) => (
 );
 
 FlipCardProfile.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default FlipCardProfile;

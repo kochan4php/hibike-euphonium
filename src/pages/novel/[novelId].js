@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import action from "../../action";
-import { Button, Loading, Synopsis, Text, CardImage } from "../../components";
+import { Button, CardImage, Loading, Synopsis, Text } from "../../components";
 
 const { getDetailNovel, getPhotoNovel } = action;
 

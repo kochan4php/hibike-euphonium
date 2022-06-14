@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
-import { About, Intro, TitleSection, MainCard } from "../components";
+import { About, Intro, MainCard, TitleSection } from "../components";
 import JIKAN_API from "../config/Jikan";
 
 const ErrorText = () => (
   <h1 className="text-xl md:text-2xl font-medium text-center">
-    Gagal mengambil data dari API, coba refresh ulang browserya :)
+    Gagal mengambil data dari API, coba refresh ulang browserya
   </h1>
 );
 
@@ -27,9 +27,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
       showCursor: false,
     });
 
-    return () => {
-      typed.destroy();
-    };
+    return () => typed.destroy();
   }, []);
 
   return (
@@ -51,14 +49,14 @@ const Home = ({ jikanAnime, jikanNovel }) => {
       <section className="min-w-full bg-slate-800 text-white py-10 flex items-center">
         <Intro />
       </section>
+
       <section className="min-w-full bg-slate-700 py-12" id="anime">
         <div className="container px-0 md:px-4">
           <TitleSection>Anime</TitleSection>
           {dataAnijme ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 md:gap-6">
               {dataAnijme.map(({ mal_id, images, title, score }) => {
-                if (mal_id === 51994 || mal_id === 51995 || mal_id === 26111)
-                  return;
+                if (mal_id === 51994 || mal_id === 26111) return;
 
                 return (
                   <MainCard
@@ -77,6 +75,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
           )}
         </div>
       </section>
+
       <section className="min-w-full bg-slate-800 py-12" id="novel">
         <div className="container px-0 md:px-4">
           <TitleSection>Novel</TitleSection>

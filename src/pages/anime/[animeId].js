@@ -1,17 +1,10 @@
 import { useRouter } from "next/router";
-import { useEffect, useState, Fragment } from "react";
+import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
-import {
-  Loading,
-  Text,
-  Synopsis,
-  Button,
-  Card,
-  CardImage,
-} from "../../components";
 import action from "../../action";
+import { Button, CardImage, Loading, Synopsis, Text } from "../../components";
 
-const { getDetailAnime, getPhotoAnime, getCharacterAnime } = action;
+const { getDetailAnime, getPhotoAnime } = action;
 
 const DetailAnime = () => {
   const router = useRouter();
