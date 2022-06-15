@@ -51,7 +51,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
       </section>
 
       <section
-        className="min-w-full bg-gradient-to-b from-slate-800 via-slate-700 to-slate-800 py-10"
+        className="min-w-full bg-gradient-to-b from-slate-800 via-slate-700 to-slate-800 py-12"
         id="anime"
       >
         <div className="container px-0 md:px-4">
@@ -80,7 +80,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
       </section>
 
       <section
-        className="min-w-full bg-gradient-to-br from-slate-700 to-slate-800 py-10"
+        className="min-w-full bg-gradient-to-br from-slate-700 to-slate-800 py-12"
         id="novel"
       >
         <div className="container px-0 md:px-4">
