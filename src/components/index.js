@@ -1,12 +1,11 @@
 import Navbar from "./Navbar";
 import Intro from "./Intro";
 import Button from "./Button";
-import Card from "./Card";
 import CardImage from "./CardImage";
 import CardLink from "./CardLink";
-import CardMobile from "./CardMobile";
+import Card from "./Card";
 import MainCard from "./MainCard";
-import FlipCardProfile from "./FlipCardProfile";
+import FlipCard from "./FlipCard";
 import TitleSection from "./TitleSection";
 import Loading from "./Loading";
 import About from "./About";
@@ -20,12 +19,11 @@ export {
   TitleSection,
   Button,
   Navbar,
-  Card,
   CardImage,
   CardLink,
-  CardMobile,
+  Card,
   MainCard,
-  FlipCardProfile,
+  FlipCard,
   FloatingRating,
   Text,
   Loading,

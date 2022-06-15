@@ -1,10 +1,5 @@
 import { Fragment } from "react";
-import {
-  CardMobile,
-  CardImage,
-  FlipCardProfile,
-  TitleSection,
-} from "../../components";
+import { Card, CardImage, FlipCard, TitleSection } from "../../components";
 import JIKAN_API from "../../config/Jikan";
 
 export const getStaticProps = async () => {
@@ -18,7 +13,10 @@ const Characters = ({ data }) => {
   const dataCharacters = data.data;
 
   return (
-    <section className="min-w-full bg-slate-800 py-12 min-h-screen" id="anime">
+    <section
+      className="min-w-full bg-gradient-to-tl from-slate-700 to-slate-800 py-12 min-h-screen"
+      id="anime"
+    >
       <div className="container text-white my-6 px-0 lg:px-4">
         <TitleSection>All Characters</TitleSection>
 
@@ -28,7 +26,7 @@ const Characters = ({ data }) => {
 
             return (
               <Fragment key={index}>
-                <FlipCardProfile>
+                <FlipCard>
                   <div className="flip-card-front absolute w-full h-full rounded-md overflow-hidden">
                     <CardImage
                       src={character?.images?.webp?.image_url}
@@ -39,22 +37,24 @@ const Characters = ({ data }) => {
                     <h1 className="text-lg mb-2 font-bold">{name}</h1>
                     <h1 className="text-md mb-2">{role}</h1>
                   </div>
-                </FlipCardProfile>
+                </FlipCard>
 
-                <CardMobile bgimage={character?.images?.webp?.image_url}>
-                  <CardImage
-                    src={character?.images?.webp?.image_url}
-                    className="rounded"
-                  />
-                  <div className="text-slate-50 pt-4 tracking-wide transition-colors duration-300">
-                    <h1 className="text-base font-semibold mb-3 selection:bg-teal-500 selection:text-teal-800">
-                      {name}
-                    </h1>
-                    <h1 className="text-base selection:bg-teal-500 selection:text-teal-800">
-                      Role: {role}
-                    </h1>
-                  </div>
-                </CardMobile>
+                <div className="md:hidden">
+                  <Card bgimage={character?.images?.webp?.image_url}>
+                    <CardImage
+                      src={character?.images?.webp?.image_url}
+                      className="rounded"
+                    />
+                    <div className="text-slate-50 pt-4 tracking-wide transition-colors duration-300">
+                      <h1 className="text-base font-semibold mb-3 selection:bg-teal-500 selection:text-teal-800">
+                        {name}
+                      </h1>
+                      <h1 className="text-base selection:bg-teal-500 selection:text-teal-800">
+                        Role: {role}
+                      </h1>
+                    </div>
+                  </Card>
+                </div>
               </Fragment>
             );
           })}

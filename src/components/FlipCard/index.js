@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const FlipCardProfile = ({ children }) => (
+const FlipCard = ({ children }) => (
   <div className="flip-card bg-transparent w-[200px] h-[300px] hidden md:block">
     <div className="flip-card-inner relative h-full w-full text-center">
       {children}
@@ -8,8 +8,8 @@ const FlipCardProfile = ({ children }) => (
   </div>
 );
 
-FlipCardProfile.propTypes = {
+FlipCard.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default FlipCardProfile;
+export default FlipCard;

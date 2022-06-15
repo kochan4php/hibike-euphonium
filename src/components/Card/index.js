@@ -1,37 +1,30 @@
 import Link from "next/link";
-import Tilt from "react-parallax-tilt";
 import PropTypes from "prop-types";
 
-const Card = ({ children, path, shadowSize, shadowColor, bgcolor }) => (
-  <div className="hidden md:block">
-    <div className="relative">
-      <Tilt perspective={1700}>
-        {path ? (
-          <Link href={path}>
-            <div
-              className={`rounded-md overflow-hidden min-h-full cursor-pointer group selection:bg-pink-500 ${shadowSize} ${bgcolor} ${shadowColor}`}
-            >
-              {children}
-            </div>
-          </Link>
-        ) : (
-          <div
-            className={`rounded-md overflow-hidden min-h-full group ${shadowSize} ${bgcolor} ${shadow}`}
-          >
+const Card = ({ bgimage, path, children }) => (
+  <div
+    className="bg-cover bg-center h-full bg-no-repeat selection:bg-violet-500 md:rounded overflow-hidden"
+    style={{ backgroundImage: `url('${bgimage}')` }}
+  >
+    <div className="backdrop-blur md:backdrop-blur-md backdrop-brightness-90 min-w-full bg-opacity-30 h-full">
+      {path ? (
+        <Link href={path}>
+          <div className="cursor-pointer group px-3 pt-6 pb-6 relative min-h-full">
             {children}
           </div>
-        )}
-      </Tilt>
+        </Link>
+      ) : (
+        <div className="group px-3 pt-6 pb-6 relative">{children}</div>
+      )}
     </div>
   </div>
 );
 
 Card.propTypes = {
   children: PropTypes.node.isRequired,
-  path: PropTypes.string,
-  shadowSize: PropTypes.string.isRequired,
-  shadowColor: PropTypes.string.isRequired,
-  bgcolor: PropTypes.string.isRequired,
+  bgimage: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  shadowColor: PropTypes.string,
 };
 
 export default Card;

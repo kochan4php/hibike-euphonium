@@ -33,7 +33,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
   return (
     <>
       <div
-        className="min-h-screen bg-fixed bg-[url('/img/4.webp')] md:bg-[url('/img/2.webp')] bg-cover bg-center"
+        className="min-h-screen bg-fixed bg-[url('/img/4.webp')] md:bg-[url('/img/2.webp')] bg-cover bg-center bg-no-repeat"
         id="home"
       >
         <section className="min-h-screen min-w-full bg-slate-800 bg-opacity-50">
@@ -46,37 +46,45 @@ const Home = ({ jikanAnime, jikanNovel }) => {
         </section>
       </div>
 
-      <section className="min-w-full bg-slate-800 text-white py-10 flex items-center">
+      <section className="min-w-full bg-gradient-to-tl from-slate-700 to-slate-800 text-white py-10 flex items-center">
         <Intro />
       </section>
 
-      <section className="min-w-full bg-slate-700 py-12" id="anime">
-        <div className="container px-0 md:px-4">
-          <TitleSection>Anime</TitleSection>
-          {dataAnijme ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 md:gap-6">
-              {dataAnijme.map(({ mal_id, images, title, score }) => {
-                if (mal_id === 51994 || mal_id === 26111) return;
+      <div
+        className="min-w-full bg-[url('/img/4.webp')] md:bg-[url('/img/2.webp')] bg-cover bg-center bg-no-repeat bg-fixed"
+        id="anime"
+      >
+        <section className="bg-gray-900 py-12 bg-opacity-70 backdrop-brightness-50 backdrop-blur-lg">
+          <div className="container px-0 md:px-4">
+            <TitleSection>Anime</TitleSection>
+            {dataAnijme ? (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 md:gap-6">
+                {dataAnijme.map(({ mal_id, images, title, score }) => {
+                  if (mal_id === 51994 || mal_id === 26111) return;
 
-                return (
-                  <MainCard
-                    key={mal_id}
-                    path="anime"
-                    id={mal_id}
-                    image={images?.webp?.large_image_url}
-                    title={title}
-                    score={score}
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            <ErrorText />
-          )}
-        </div>
-      </section>
+                  return (
+                    <MainCard
+                      key={mal_id}
+                      path="anime"
+                      id={mal_id}
+                      image={images?.webp?.large_image_url}
+                      title={title}
+                      score={score}
+                    />
+                  );
+                })}
+              </div>
+            ) : (
+              <ErrorText />
+            )}
+          </div>
+        </section>
+      </div>
 
-      <section className="min-w-full bg-slate-800 py-12" id="novel">
+      <section
+        className="min-w-full bg-gradient-to-br from-slate-700 to-slate-800 py-12"
+        id="novel"
+      >
         <div className="container px-0 md:px-4">
           <TitleSection>Novel</TitleSection>
           {dataNovel ? (
@@ -92,9 +100,6 @@ const Home = ({ jikanAnime, jikanNovel }) => {
                     image={images?.webp?.large_image_url}
                     title={title}
                     score={score}
-                    bgcolor="bg-gray-800"
-                    shadowSize="shadow-md"
-                    shadowColor="shadow-gray-600"
                   />
                 );
               })}
@@ -105,7 +110,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
         </div>
       </section>
 
-      <div className="min-h-screen bg-fixed bg-[url('/img/3.webp')] md:bg-[url('/img/1.webp')] bg-cover bg-center">
+      <div className="min-h-screen bg-fixed bg-[url('/img/3.webp')] md:bg-[url('/img/1.webp')] bg-cover bg-center bg-no-repeat">
         <section
           className="min-h-screen min-w-full bg-slate-800 bg-opacity-60 py-20 md:py-0"
           id="about"
