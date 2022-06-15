@@ -5,7 +5,7 @@ import JIKAN_API from "../config/Jikan";
 
 const ErrorText = () => (
   <h1 className="text-xl md:text-2xl font-medium text-center">
-    Gagal mengambil data dari API, coba refresh ulang browserya
+    Gagal mengambil data dari API, coba refresh ulang browsernya
   </h1>
 );
 
@@ -50,39 +50,37 @@ const Home = ({ jikanAnime, jikanNovel }) => {
         <Intro />
       </section>
 
-      <div
-        className="min-w-full bg-[url('/img/4.webp')] md:bg-[url('/img/2.webp')] bg-cover bg-center bg-no-repeat bg-fixed"
+      <section
+        className="min-w-full bg-gradient-to-b from-slate-800 via-slate-700 to-slate-800 py-10"
         id="anime"
       >
-        <section className="bg-gray-900 py-12 bg-opacity-70 backdrop-brightness-50 backdrop-blur-lg">
-          <div className="container px-0 md:px-4">
-            <TitleSection>Anime</TitleSection>
-            {dataAnijme ? (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 md:gap-6">
-                {dataAnijme.map(({ mal_id, images, title, score }) => {
-                  if (mal_id === 51994 || mal_id === 26111) return;
+        <div className="container px-0 md:px-4">
+          <TitleSection>Anime</TitleSection>
+          {dataAnijme ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 md:gap-6">
+              {dataAnijme.map(({ mal_id, images, title, score }) => {
+                if (mal_id === 51994 || mal_id === 26111) return;
 
-                  return (
-                    <MainCard
-                      key={mal_id}
-                      path="anime"
-                      id={mal_id}
-                      image={images?.webp?.large_image_url}
-                      title={title}
-                      score={score}
-                    />
-                  );
-                })}
-              </div>
-            ) : (
-              <ErrorText />
-            )}
-          </div>
-        </section>
-      </div>
+                return (
+                  <MainCard
+                    key={mal_id}
+                    path="anime"
+                    id={mal_id}
+                    image={images?.webp?.large_image_url}
+                    title={title}
+                    score={score}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <ErrorText />
+          )}
+        </div>
+      </section>
 
       <section
-        className="min-w-full bg-gradient-to-br from-slate-700 to-slate-800 py-12"
+        className="min-w-full bg-gradient-to-br from-slate-700 to-slate-800 py-10"
         id="novel"
       >
         <div className="container px-0 md:px-4">
