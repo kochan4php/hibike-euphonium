@@ -54,10 +54,10 @@ const Home = ({ jikanAnime, jikanNovel }) => {
         className="min-w-full bg-gradient-to-b from-slate-800 via-slate-700 to-slate-800 py-12"
         id="anime"
       >
-        <div className="container px-0 md:px-4">
+        <div className="container px-0 lg:px-4">
           <TitleSection>Anime</TitleSection>
           {dataAnijme ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 md:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:gap-6">
               {dataAnijme.map(({ mal_id, images, title, score }) => {
                 if (mal_id === 51994 || mal_id === 26111) return;
 
@@ -83,10 +83,10 @@ const Home = ({ jikanAnime, jikanNovel }) => {
         className="min-w-full bg-gradient-to-br from-slate-700 to-slate-800 py-12"
         id="novel"
       >
-        <div className="container px-0 md:px-4">
+        <div className="container px-0 lg:px-4">
           <TitleSection>Novel</TitleSection>
           {dataNovel ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:gap-6">
               {dataNovel.map(({ mal_id, images, title, score }) => {
                 if (mal_id === 129104 || mal_id === 10404) return;
 

@@ -1,13 +1,12 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
-import Tilt from "react-parallax-tilt";
 
 const Card = ({ bgimage, path, children }) => (
   <div
     className="bg-cover bg-center h-full bg-no-repeat selection:bg-violet-500 md:rounded overflow-hidden"
     style={{ backgroundImage: `url('${bgimage}')` }}
   >
-    <div className="backdrop-blur md:backdrop-blur-md backdrop-brightness-[0.8] min-w-full bg-opacity-30 h-full">
+    <div className="backdrop-blur md:backdrop-blur-lg backdrop-brightness-[0.8] min-w-full bg-opacity-30 h-full">
       {path ? (
         <Link href={path}>
           <div className="cursor-pointer group px-3 pt-6 pb-6 relative min-h-full">

@@ -1,12 +1,14 @@
 import { useEffect } from "react";
 import Link from "next/link";
 
+const createRoute = (path, name) => ({ path, name });
+
 const routes = [
-  { path: "/", name: "Home" },
-  { path: "/#about", name: "About" },
-  { path: "/#anime", name: "Anime" },
-  { path: "/#novel", name: "Novel" },
-  { path: "/characters", name: "Characters" },
+  createRoute("/", "Home"),
+  createRoute("/#about", "About"),
+  createRoute("/#anime", "Anime"),
+  createRoute("/#novel", "Novel"),
+  createRoute("/characters", "Characters"),
 ];
 
 const Navbar = () => {
@@ -48,7 +50,7 @@ const Navbar = () => {
           />
         </div>
 
-        <ul className="flex absolute md:static text-lg font-semibold right-0 flex-col md:flex-row bg-slate-800 md:bg-transparent md:border-none md:h-0 md:z-[999] md:backdrop-blur-none backdrop-blur-lg h-[70vh] top-[75px] bottom-0 justify-evenly md:justify-between items-center -z-[199] w-[65%] md:w-[60%] lg:w-[40%] transition-all duration-300 md:rounded-none rounded-md border border-slate-600 navbar-nav">
+        <ul className="flex absolute md:static text-lg font-semibold right-0 flex-col md:flex-row bg-slate-800 md:bg-transparent md:border-none md:h-0 md:z-[999] md:backdrop-blur-none backdrop-blur-lg h-[70vh] top-[75px] bottom-0 justify-evenly md:justify-between items-center -z-[199] w-[65%] md:w-[60%] lg:w-[50%] xl:w-[40%] transition-all duration-300 md:rounded-none rounded-md border border-slate-600 navbar-nav">
           {routes.map(({ path, name }, index) => (
             <li key={index}>
               <Link href={path}>
