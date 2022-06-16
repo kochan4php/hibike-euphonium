@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Card, CardImage, FlipCard, TitleSection } from "../../components";
 import JIKAN_API from "../../config/Jikan";
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const request = await fetch(`${JIKAN_API}/anime/35678/characters`);
   const response = await request.json();
   const data = await response;
@@ -14,10 +14,10 @@ const Characters = ({ data }) => {
 
   return (
     <section
-      className="min-w-full bg-gradient-to-tl from-slate-700 to-slate-800 py-12 min-h-screen"
+      className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800 py-12 min-h-screen"
       id="anime"
     >
-      <div className="container text-white my-6 px-0 lg:px-4">
+      <div className="container text-white mt-8 mb-6 px-0 lg:px-4">
         <TitleSection>All Characters</TitleSection>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:gap-7 md:flex md:flex-wrap md:justify-center">

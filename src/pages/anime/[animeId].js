@@ -37,7 +37,7 @@ const DetailAnime = () => {
   }, [animeId]);
 
   return (
-    <section className="min-w-full bg-slate-800 text-white pt-16 pb-6 min-h-screen">
+    <section className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800 text-white pt-16 pb-6 min-h-screen">
       <Button onClick={handleClick}>&laquo;&nbsp;Back</Button>
 
       {isLoading ? (

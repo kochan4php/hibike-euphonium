@@ -46,14 +46,11 @@ const Home = ({ jikanAnime, jikanNovel }) => {
         </section>
       </div>
 
-      <section className="min-w-full bg-gradient-to-tl from-slate-700 to-slate-800 text-white py-10 flex items-center">
+      <section className="min-w-full bg-slate-800 text-white py-10 flex items-center">
         <Intro />
       </section>
 
-      <section
-        className="min-w-full bg-gradient-to-b from-slate-800 via-slate-700 to-slate-800 py-12"
-        id="anime"
-      >
+      <section className="min-w-full bg-slate-700 py-12" id="anime">
         <div className="container px-0 lg:px-4">
           <TitleSection>Anime</TitleSection>
           {dataAnijme ? (
@@ -79,10 +76,7 @@ const Home = ({ jikanAnime, jikanNovel }) => {
         </div>
       </section>
 
-      <section
-        className="min-w-full bg-gradient-to-br from-slate-700 to-slate-800 py-12"
-        id="novel"
-      >
+      <section className="min-w-full bg-slate-800 py-12" id="novel">
         <div className="container px-0 lg:px-4">
           <TitleSection>Novel</TitleSection>
           {dataNovel ? (
