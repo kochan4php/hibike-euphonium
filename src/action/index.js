@@ -22,6 +22,17 @@ const getDetailNovel = async (id) => {
   }
 };
 
+const getDetailCharacter = async (id) => {
+  const request = await fetch(`${JIKAN_API}/characters/${id}/full`);
+
+  if (request.ok) {
+    const response = await request.json();
+    return response.data;
+  } else {
+    return;
+  }
+};
+
 const getPhotoAnime = async (id) => {
   const request = await fetch(`${JIKAN_API}/anime/${id}/pictures`);
 
@@ -44,4 +55,22 @@ const getPhotoNovel = async (id) => {
   }
 };
 
-export default { getDetailAnime, getDetailNovel, getPhotoAnime, getPhotoNovel };
+const getPhotoCharacter = async (id) => {
+  const request = await fetch(`${JIKAN_API}/characters/${id}/pictures`);
+
+  if (request.ok) {
+    const response = await request.json();
+    return response.data;
+  } else {
+    return;
+  }
+};
+
+export default {
+  getDetailAnime,
+  getDetailNovel,
+  getDetailCharacter,
+  getPhotoAnime,
+  getPhotoNovel,
+  getPhotoCharacter,
+};

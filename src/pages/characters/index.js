@@ -2,7 +2,7 @@ import { ErrorMessage, MainCard, TitleSection } from "../../components";
 import JIKAN_API from "../../config/Jikan";
 
 export const getServerSideProps = async () => {
-  const request = await fetch(`${JIKAN_API}/anime/35678/characters`);
+  const request = await fetch(`${JIKAN_API}/anime/31988/characters`);
   const response = await request.json();
   const data = await response;
   return { props: { data } };
