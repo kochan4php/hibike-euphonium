@@ -1,18 +1,20 @@
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
-import { About, Intro, MainCard, TitleSection } from "../components";
+import {
+  About,
+  Intro,
+  MainCard,
+  TitleSection,
+  ErrorMessage,
+} from "../components";
 import JIKAN_API from "../config/Jikan";
-
-const ErrorText = () => (
-  <h1 className="text-xl md:text-2xl font-medium text-center">
-    Gagal mengambil data dari API, coba refresh ulang browsernya
-  </h1>
-);
 
 const Home = ({ jikanAnime, jikanNovel }) => {
   const text = useRef(null);
   const dataAnijme = jikanAnime.data;
   const dataNovel = jikanNovel.data;
+  const message =
+    "Gagal mengambil data dari API, coba refresh ulang browsernya";
 
   useEffect(() => {
     const typed = new Typed(text.current, {
@@ -66,12 +68,15 @@ const Home = ({ jikanAnime, jikanNovel }) => {
                     image={images?.webp?.large_image_url}
                     title={title}
                     score={score}
+                    py="py-5"
+                    px="px-0.5 md:px-1"
+                    fontsize="text-base md:text-lg"
                   />
                 );
               })}
             </div>
           ) : (
-            <ErrorText />
+            <ErrorMessage message={message} />
           )}
         </div>
       </section>
@@ -92,12 +97,15 @@ const Home = ({ jikanAnime, jikanNovel }) => {
                     image={images?.webp?.large_image_url}
                     title={title}
                     score={score}
+                    py="py-5"
+                    px="px-0.5 md:px-1"
+                    fontsize="text-base md:text-lg"
                   />
                 );
               })}
             </div>
           ) : (
-            <ErrorText />
+            <ErrorMessage message={message} />
           )}
         </div>
       </section>

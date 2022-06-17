@@ -2,7 +2,14 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import action from "../../action";
-import { Button, CardImage, Loading, Synopsis, Text } from "../../components";
+import {
+  Button,
+  CardImage,
+  ErrorMessage,
+  Loading,
+  Synopsis,
+  Text,
+} from "../../components";
 
 const { getDetailAnime, getPhotoAnime } = action;
 
@@ -55,7 +62,7 @@ const DetailAnime = () => {
           )}
           <div className="container my-10 p-4">
             {isError ? (
-              <p>Kebanyakan Request di API nya</p>
+              <ErrorMessage message="Kebanyakan Request di API nya" />
             ) : (
               <>
                 <div className="grid grid-cols-1 md:grid-cols-3">
