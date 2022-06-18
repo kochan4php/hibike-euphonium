@@ -36,7 +36,7 @@ const DetailNovel = () => {
     setIsLoading(false);
   };
 
-  const handleClick = () => router.push("/#novel");
+  const handleClick = () => router.back();
 
   useEffect(() => {
     getData(novelId);
@@ -44,7 +44,9 @@ const DetailNovel = () => {
 
   return (
     <section className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800  text-white pt-16 pb-6 min-h-screen">
-      <Button onClick={handleClick}>&laquo;&nbsp;Back</Button>
+      <div className="container">
+        <Button onClick={handleClick}>&laquo;&nbsp;Back</Button>
+      </div>
 
       {isLoading ? (
         <Loading />

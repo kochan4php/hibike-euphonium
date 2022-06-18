@@ -5,6 +5,7 @@ import {
   Button,
   ErrorMessage,
   Loading,
+  MainCard,
   ParallaxCardImage,
   ParallaxImage,
   Synopsis,
@@ -47,7 +48,9 @@ const DetailCharacter = () => {
 
   return (
     <section className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800 text-white pt-16 pb-6 min-h-screen">
-      <Button onClick={handleClick}>&laquo;&nbsp;Back</Button>
+      <div className="container">
+        <Button onClick={handleClick}>&laquo;&nbsp;Back</Button>
+      </div>
 
       {isLoading ? (
         <Loading />
@@ -62,7 +65,7 @@ const DetailCharacter = () => {
                   <div className="flex justify-center items-center selection:bg-pink-500">
                     <ParallaxImage
                       image={detailCharacter?.images?.webp?.image_url}
-                      alt={detailCharacter?.title}
+                      alt={detailCharacter?.name}
                     />
                   </div>
                   <div className="flex items-center justify-start md:col-start-2 md:col-end-4 p-4 md:py-0">
@@ -88,12 +91,52 @@ const DetailCharacter = () => {
                     : "No synopsis."}
                 </Synopsis>
 
+                <div className="mt-10 lg:mt-0 md:pt-10 lg:pt-16">
+                  <h1 className="text-3xl md:text-4xl mb-7 selection:bg-emerald-500 selection:text-emerald-900">
+                    Anime
+                  </h1>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:gap-5 -mx-4 md:mx-0">
+                    {detailCharacter?.anime.map((data) => (
+                      <MainCard
+                        key={data?.anime?.mal_id}
+                        path="anime"
+                        id={data?.anime?.mal_id}
+                        image={data?.anime?.images?.webp?.large_image_url}
+                        title={data?.anime?.title}
+                        py="py-5"
+                        fontsize="text-base md:text-lg"
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-10 lg:mt-0 md:pt-10 lg:pt-16">
+                  <h1 className="text-3xl md:text-4xl mb-7 selection:bg-emerald-500 selection:text-emerald-900">
+                    Manga
+                  </h1>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:gap-5 -mx-4 md:mx-0">
+                    {detailCharacter?.manga.map((data) => (
+                      <MainCard
+                        key={data?.manga?.mal_id}
+                        path="anime"
+                        id={data?.manga?.mal_id}
+                        image={data?.manga?.images?.webp?.large_image_url}
+                        title={data?.manga?.title}
+                        py="py-5"
+                        fontsize="text-base md:text-lg"
+                      />
+                    ))}
+                  </div>
+                </div>
+
                 {photosCharacter !== [] ? (
-                  <div className="mt-8 md:pt-8 md:px-10 lg:px-16">
+                  <div className="mt-10 lg:mt-0 md:pt-10 lg:pt-16">
                     <h1 className="text-3xl md:text-4xl mb-7 selection:bg-emerald-500 selection:text-emerald-900">
                       Photos
                     </h1>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5">
                       {photosCharacter?.map((data, index) => (
                         <ParallaxCardImage
                           image={data?.jpg?.image_url}

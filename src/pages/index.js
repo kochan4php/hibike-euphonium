@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import {
   About,
+  ErrorMessage,
   Intro,
   MainCard,
   TitleSection,
-  ErrorMessage,
 } from "../components";
 import JIKAN_API from "../config/Jikan";
 
@@ -69,7 +69,6 @@ const Home = ({ jikanAnime, jikanNovel }) => {
                     title={title}
                     score={score}
                     py="py-5"
-                    px="px-0.5 md:px-1"
                     fontsize="text-base md:text-lg"
                   />
                 );
@@ -98,7 +97,6 @@ const Home = ({ jikanAnime, jikanNovel }) => {
                     title={title}
                     score={score}
                     py="py-5"
-                    px="px-0.5 md:px-1"
                     fontsize="text-base md:text-lg"
                   />
                 );
