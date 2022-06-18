@@ -70,7 +70,7 @@ const DetailAnime = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3">
                   <div className="flex justify-center items-center selection:bg-pink-500">
                     <ParallaxImage
-                      image={detailAnime?.images?.webp?.image_url}
+                      image={detailAnime?.images?.webp?.large_image_url}
                       alt={detailAnime?.title}
                     />
                   </div>

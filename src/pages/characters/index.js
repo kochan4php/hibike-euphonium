@@ -12,10 +12,7 @@ const Characters = ({ data }) => {
   const dataCharacters = data.data;
 
   return (
-    <section
-      className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800 py-12 min-h-screen"
-      id="anime"
-    >
+    <section className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800 py-12 min-h-screen">
       <div className="container text-white mt-8 mb-6 px-0 lg:px-4">
         <TitleSection>All Characters</TitleSection>
         {dataCharacters ? (

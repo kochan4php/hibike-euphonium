@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const createRoute = (path, name) => ({ path, name });
 
 const routes = [
   createRoute("/", "Home"),
   createRoute("/#about", "About"),
-  createRoute("/#anime", "Anime"),
-  createRoute("/#novel", "Novel"),
+  createRoute("/anime", "Anime"),
+  createRoute("/novel", "Novel"),
   createRoute("/characters", "Characters"),
 ];
 
@@ -40,12 +41,12 @@ const Navbar = () => {
 
   return (
     <nav className="bg-transparent z-[999] fixed w-full transition-all duration-300 text-white border-b border-b-transparent">
-      <div className="container flex justify-between items-center py-1 relative">
+      <div className="container flex justify-between items-center py-1.5 relative">
         <div className="selection:bg-purple-500 selection:text-purple-900">
-          <img
+          <Image
             src="/icon/logo-hibike-euphonium.png"
-            width="130"
-            height="50"
+            width="115"
+            height="45"
             alt="logo"
           />
         </div>
