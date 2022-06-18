@@ -88,10 +88,10 @@ const DetailAnime = () => {
                       </Text>
                       <Text category="Genre">
                         {detailAnime?.themes?.map((genre, index) => {
-                          let coma;
-                          detailAnime?.themes.length - 1 === index
-                            ? (coma = "")
-                            : (coma = ", ");
+                          const coma =
+                            detailAnime?.themes.length - 1 === index
+                              ? ""
+                              : ", ";
 
                           return (
                             <span key={index}>

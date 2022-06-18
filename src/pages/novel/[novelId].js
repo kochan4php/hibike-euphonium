@@ -77,10 +77,8 @@ const DetailNovel = () => {
                     </Text>
                     <Text category="Genre">
                       {detailNovel?.themes.map((genre, index) => {
-                        let coma;
-                        detailNovel?.themes.length - 1 === index
-                          ? (coma = "")
-                          : (coma = ", ");
+                        const coma =
+                          detailNovel?.themes.length - 1 === index ? "" : ", ";
 
                         return (
                           <span key={index}>
