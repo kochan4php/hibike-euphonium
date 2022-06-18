@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
-import { Card, CardImage, CardLink, FloatingRating } from "../index.js";
+import Card from "../Card";
+import CardImage from "../CardImage";
+import CardLink from "../CardLink";
+import FloatingRating from "../FloatingRating";
 
 const MainCard = ({
   id,
