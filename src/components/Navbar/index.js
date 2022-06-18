@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const createRoute = (path, name) => ({ path, name });
 
@@ -13,6 +14,9 @@ const routes = [
 ];
 
 const Navbar = () => {
+  const router = useRouter();
+  const currentPath = router.asPath.split("/")[1];
+
   useEffect(() => {
     const navbar = document.querySelector("nav");
     const toggle = document.getElementById("toggle");
@@ -55,7 +59,11 @@ const Navbar = () => {
           {routes.map(({ path, name }, index) => (
             <li key={index}>
               <Link href={path}>
-                <a className="transition-all duration-200 p-[1px] border-b-2 border-transparent hover:border-b-slate-200 selection:bg-emerald-500 selection:text-emerald-900">
+                <a
+                  className={`transition-all duration-200 p-[1px] border-b-2 border-transparent hover:border-b-slate-200 selection:bg-emerald-500 selection:text-emerald-900 ${
+                    currentPath === path.split("/")[1] ? "active" : ""
+                  }`}
+                >
                   {name}
                 </a>
               </Link>

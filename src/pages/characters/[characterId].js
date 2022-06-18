@@ -105,7 +105,7 @@ const DetailCharacter = () => {
                         image={data?.anime?.images?.webp?.large_image_url}
                         title={data?.anime?.title}
                         py="py-5"
-                        fontsize="text-base md:text-lg"
+                        fontsize="text-base"
                       />
                     ))}
                   </div>
@@ -120,12 +120,12 @@ const DetailCharacter = () => {
                     {detailCharacter?.manga.map((data) => (
                       <MainCard
                         key={data?.manga?.mal_id}
-                        path="anime"
+                        path="novel"
                         id={data?.manga?.mal_id}
                         image={data?.manga?.images?.webp?.large_image_url}
                         title={data?.manga?.title}
                         py="py-5"
-                        fontsize="text-base md:text-lg"
+                        fontsize="text-base"
                       />
                     ))}
                   </div>

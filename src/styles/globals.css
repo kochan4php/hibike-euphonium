@@ -33,6 +33,10 @@
   opacity: 0;
 }
 
+.active {
+  @apply border-b-slate-200;
+}
+
 @media (min-width: 768px) {
   .navbar-nav {
     transform: translateX(0);
