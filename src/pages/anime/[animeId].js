@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Tilt from "react-parallax-tilt";
 import action from "../../action";
 import {
   Button,
-  CardImage,
   ErrorMessage,
   Loading,
+  ParallaxCardImage,
+  ParallaxImage,
   Synopsis,
   Text,
 } from "../../components";
@@ -67,13 +67,10 @@ const DetailAnime = () => {
               <>
                 <div className="grid grid-cols-1 md:grid-cols-3">
                   <div className="flex justify-center items-center selection:bg-pink-500">
-                    <Tilt perspective={700} className="flex justify-center">
-                      <img
-                        src={detailAnime?.images?.webp?.large_image_url}
-                        alt={detailAnime?.title}
-                        className="rounded shadow shadow-slate-800 w-3/5 md:w-full lg:w-3/5"
-                      />
-                    </Tilt>
+                    <ParallaxImage
+                      image={detailAnime?.images?.webp?.image_url}
+                      alt={detailAnime?.title}
+                    />
                   </div>
                   <div className="flex flex-col justify-start md:col-start-2 md:col-end-4 p-4 md:py-0">
                     {detailAnime?.score && (
@@ -82,7 +79,7 @@ const DetailAnime = () => {
                         <span>{detailAnime?.score}</span>
                       </span>
                     )}
-                    <h1 className="text-3xl lg:text-4xl font-semibold my-8 md:my-0 md:mb-5 selection:bg-violet-500 selection:text-violet-900">
+                    <h1 className="text-2xl lg:text-3xl font-semibold my-8 md:my-0 md:mb-5 selection:bg-violet-500 selection:text-violet-900">
                       {detailAnime?.title}
                     </h1>
                     <div className="text-lg selection:bg-pink-500 selection:text-pink-900">
@@ -119,32 +116,26 @@ const DetailAnime = () => {
                     : "No synopsis."}
                 </Synopsis>
 
-                <div className="mt-8 md:pt-8 md:px-10 lg:px-16">
-                  <h1 className="text-3xl md:text-4xl mb-7 selection:bg-emerald-500 selection:text-emerald-900">
-                    Photos
-                  </h1>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                    {photosAnime !== [] ? (
-                      <>
-                        {photosAnime?.map((data, index) => (
-                          <div className="rounded overflow-hidden" key={index}>
-                            <CardImage
-                              src={data?.webp?.large_image_url}
-                              alt=""
-                              width="100%"
-                              height="100%"
-                              className="rounded selection:bg-pink-500"
-                            />
-                          </div>
-                        ))}
-                      </>
-                    ) : (
-                      <p className="text-md md:text-lg text-justify md:text-left selection:bg-green-500 selection:text-green-900">
-                        No photos.
-                      </p>
-                    )}
+                {photosAnime !== [] ? (
+                  <div className="mt-8 md:pt-8 md:px-10 lg:px-16">
+                    <h1 className="text-3xl md:text-4xl mb-7 selection:bg-emerald-500 selection:text-emerald-900">
+                      Photos
+                    </h1>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+                      {photosAnime?.map((data, index) => (
+                        <ParallaxCardImage
+                          image={data?.webp?.large_image_url}
+                          alt={`gambar ${index + 1}`}
+                          key={index}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <p className="text-md md:text-lg text-justify md:text-left selection:bg-green-500 selection:text-green-900">
+                    No photos.
+                  </p>
+                )}
               </>
             )}
           </div>

@@ -5,6 +5,8 @@ import CardImage from "./CardImage";
 import CardLink from "./CardLink";
 import Card from "./Card";
 import MainCard from "./MainCard";
+import ParallaxCardImage from "./ParallaxCardImage";
+import ParallaxImage from "./ParallaxImage";
 import ErrorMessage from "./ErrorMessage";
 import TitleSection from "./TitleSection";
 import Loading from "./Loading";
@@ -23,6 +25,8 @@ export {
   CardLink,
   Card,
   MainCard,
+  ParallaxCardImage,
+  ParallaxImage,
   ErrorMessage,
   FloatingRating,
   Text,
