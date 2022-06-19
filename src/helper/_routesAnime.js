@@ -1,4 +1,4 @@
-import createRoute from "../../../helper/createRoute";
+import createRoute from "./createRoute";
 
 const routesAnime = (id) => [
   createRoute(`/anime/${id}/details`, "Details"),

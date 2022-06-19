@@ -1,15 +1,9 @@
-import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import action from "../../../action";
+import { ErrorMessage, Loading, TitleSection } from "../../../components";
+import routesAnime from "../../../helper/_routesAnime";
 import LayoutDetailPage from "../../../layout/layoutDetailPage";
-import routesAnime from "./_routesAnime";
-import {
-  Loading,
-  ErrorMessage,
-  TitleSection,
-  ParallaxCardImage,
-  ParallaxImage,
-} from "../../../components";
 
 const { getAnimeVideos } = action;
 

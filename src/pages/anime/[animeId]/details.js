@@ -9,7 +9,7 @@ import {
   Text,
 } from "../../../components";
 import LayoutDetailPage from "../../../layout/layoutDetailPage";
-import routesAnime from "./_routesAnime";
+import routesAnime from "../../../helper/_routesAnime";
 
 const { getDetailAnime } = action;
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import action from "../../../action";
 import LayoutDetailPage from "../../../layout/layoutDetailPage";
-import routesAnime from "./_routesAnime";
+import routesAnime from "../../../helper/_routesAnime";
 import {
   Loading,
   ErrorMessage,
