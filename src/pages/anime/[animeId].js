@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import action from "../../action";
 import {
-  Button,
   ErrorMessage,
   Loading,
   ParallaxCardImage,
@@ -37,18 +36,12 @@ const DetailAnime = () => {
     setIsLoading(false);
   };
 
-  const handleClick = () => router.back();
-
   useEffect(() => {
     getData(animeId);
   }, [animeId]);
 
   return (
     <section className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800 text-white pt-16 pb-6 min-h-screen">
-      <div className="container flex justify-start my-5 xl:px-0">
-        <Button onClick={handleClick}>&laquo;&nbsp;Back</Button>
-      </div>
-
       {isLoading ? (
         <Loading />
       ) : (
@@ -85,9 +78,6 @@ const DetailAnime = () => {
                       {detailAnime?.title}
                     </h1>
                     <div className="text-lg selection:bg-pink-500 selection:text-pink-900">
-                      <Text category="Kanji">
-                        {detailAnime?.title_japanese}
-                      </Text>
                       <Text category="Release">
                         {detailAnime?.aired?.string}
                       </Text>
@@ -109,8 +99,6 @@ const DetailAnime = () => {
                       </Text>
                       <Text category="Type">{detailAnime?.type}</Text>
                       <Text category="Duration">{detailAnime?.duration}</Text>
-                      <Text category="Episodes">{detailAnime?.episodes}</Text>
-                      <Text category="Favorite">{detailAnime?.favorites}</Text>
                       <Text category="Studio">
                         {detailAnime?.studios?.map((studio) => studio.name)}
                       </Text>
