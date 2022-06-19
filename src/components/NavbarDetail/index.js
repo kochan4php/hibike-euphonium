@@ -8,7 +8,7 @@ const NavbarDetail = ({ routes }) => {
   const currentPath = router.asPath.split("/")[3];
 
   return (
-    <div className="container my-6 py-3 xl:rounded text-base md:text-lg bg-gray-900">
+    <div className="container my-5 py-2.5 xl:rounded text-base md:text-lg bg-gray-900">
       <nav>
         <ul className="flex w-full justify-between lg:justify-evenly overflow-x-scroll lg:overflow-x-hidden nav-detail">
           {routes.map(({ path, name }, index) => {
