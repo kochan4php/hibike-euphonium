@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
+import NavbarDetail from "./NavbarDetail";
 import Intro from "./Intro";
 import Button from "./Button";
 import CardImage from "./CardImage";
@@ -21,6 +22,7 @@ export {
   TitleSection,
   Button,
   Navbar,
+  NavbarDetail,
   CardImage,
   CardLink,
   Card,

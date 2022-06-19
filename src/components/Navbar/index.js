@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
-const createRoute = (path, name) => ({ path, name });
+import createRoute from "../../helper/createRoute";
 
 const routes = [
   createRoute("/", "Home"),

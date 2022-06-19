@@ -5,7 +5,7 @@
 @layer utilities {
   * {
     font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
-    @apply box-border;
+    box-sizing: border-box !important;
   }
 
   html {
@@ -15,6 +15,16 @@
 
   body {
     @apply overflow-x-hidden;
+  }
+
+  .nav-detail {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+  }
+
+  .nav-detail::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
   }
 }
 

@@ -4,13 +4,25 @@ import action from "../../action";
 import {
   ErrorMessage,
   Loading,
+  NavbarDetail,
   ParallaxCardImage,
   ParallaxImage,
   Synopsis,
   Text,
 } from "../../components";
+import createRoute from "../../helper/createRoute";
 
 const { getDetailAnime, getPhotoAnime } = action;
+
+const routes = [
+  createRoute("/", "Details"),
+  createRoute("/", "Characters"),
+  createRoute("/", "Episodes"),
+  createRoute("/", "Videos"),
+  createRoute("/", "Stats"),
+  createRoute("/", "Reviews"),
+  createRoute("/", "Pictures"),
+];
 
 const DetailAnime = () => {
   const router = useRouter();
@@ -46,6 +58,7 @@ const DetailAnime = () => {
         <Loading />
       ) : (
         <>
+          <NavbarDetail routes={routes} />
           {detailAnime?.trailer?.embed_url && (
             <div className="container p-0">
               <iframe
