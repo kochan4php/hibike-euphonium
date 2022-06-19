@@ -34,7 +34,7 @@ const Home = () => {
         </section>
       </div>
 
-      <section className="min-w-full min-h-screen bg-gradient-to-tr from-slate-800 via-slate-700 to-slate-800 text-white py-10 flex items-center">
+      <section className="min-w-full lg:min-h-screen bg-gradient-to-tr from-slate-900 via-slate-800 to-slate-900 text-white py-10 flex items-center">
         <Intro />
       </section>
 

@@ -14,7 +14,7 @@ export const getServerSideProps = async () => {
 };
 
 const Anime = ({ jikanAnime }) => (
-  <section className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800 py-12 min-h-screen">
+  <section className="min-w-full bg-gradient-to-tl from-slate-900 via-slate-800 to-slate-900 py-12 min-h-screen">
     <div className="container px-0 lg:px-4">
       <TitleSection centerText>Anime</TitleSection>
       {jikanAnime ? (

@@ -38,9 +38,9 @@ const Characters = () => {
       ) : (
         <>
           <div className="container text-white mt-8">
-            <TitleSection>All Characters</TitleSection>
+            <TitleSection>Characters</TitleSection>
           </div>
-          <div className="container text-white mb-6 px-0 lg:px-4">
+          <div className="container text-white mb-6 px-0">
             {isError ? (
               <ErrorMessage message="Kebanyakan Request di API nya" />
             ) : (

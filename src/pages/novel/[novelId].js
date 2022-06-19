@@ -50,7 +50,7 @@ const DetailNovel = () => {
   }, [novelId]);
 
   return (
-    <section className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800  text-white pt-16 pb-6 min-h-screen">
+    <section className="min-w-full bg-gradient-to-tl from-slate-900 via-slate-800 to-slate-900 text-white pt-16 pb-6 min-h-screen">
       {isLoading ? (
         <Loading />
       ) : (
