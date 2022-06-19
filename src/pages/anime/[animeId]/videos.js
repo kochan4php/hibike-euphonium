@@ -23,12 +23,8 @@ const Videos = () => {
 
   const getData = async (id) => {
     const getVideoAnime = await getAnimeVideos(id);
-    if (getVideoAnime) {
-      setVideosAnime(getVideoAnime);
-      console.log(getVideoAnime);
-    } else {
-      setIsError(true);
-    }
+    if (getVideoAnime) setVideosAnime(getVideoAnime);
+    else setIsError(true);
     setIsLoading(false);
   };
 
