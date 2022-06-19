@@ -1,50 +1,31 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import action from "../../action";
+import action from "../../../action";
 import {
   ErrorMessage,
   Loading,
-  NavbarDetail,
-  ParallaxCardImage,
   ParallaxImage,
   Synopsis,
   Text,
-} from "../../components";
-import createRoute from "../../helper/createRoute";
+} from "../../../components";
+import LayoutDetailPage from "../../../layout/layoutDetailPage";
+import routesAnime from "./_routesAnime";
 
-const { getDetailAnime, getPhotoAnime } = action;
-
-const routes = [
-  createRoute("/", "Details"),
-  createRoute("/", "Characters"),
-  createRoute("/", "Episodes"),
-  createRoute("/", "Videos"),
-  createRoute("/", "Stats"),
-  createRoute("/", "Reviews"),
-  createRoute("/", "Pictures"),
-];
+const { getDetailAnime } = action;
 
 const DetailAnime = () => {
   const router = useRouter();
   const { animeId } = router.query;
+  const routes = routesAnime(animeId);
 
   const [detailAnime, setDetailAnime] = useState([]);
-  const [photosAnime, setPhotosAnime] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   const getData = async (id) => {
     const getDataAnime = await getDetailAnime(id);
-    const getPhotosAnime = await getPhotoAnime(id);
-
-    if (getDataAnime && getPhotosAnime) {
-      setDetailAnime(getDataAnime);
-      setPhotosAnime(getPhotosAnime);
-      setIsError(false);
-    } else {
-      setIsError(true);
-    }
-
+    if (getDataAnime) setDetailAnime(getDataAnime);
+    else setIsError(true);
     setIsLoading(false);
   };
 
@@ -53,12 +34,11 @@ const DetailAnime = () => {
   }, [animeId]);
 
   return (
-    <section className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800 text-white pt-16 pb-6 min-h-screen">
+    <LayoutDetailPage routes={routes}>
       {isLoading ? (
         <Loading />
       ) : (
         <>
-          <NavbarDetail routes={routes} />
           {detailAnime?.trailer?.embed_url && (
             <div className="container p-0">
               <iframe
@@ -125,33 +105,12 @@ const DetailAnime = () => {
                     ? detailAnime?.synopsis
                     : "No synopsis."}
                 </Synopsis>
-
-                {photosAnime !== [] ? (
-                  <div className="mt-10 lg:mt-0 md:pt-10 lg:pt-16">
-                    <h1 className="text-3xl md:text-4xl mb-7 selection:bg-emerald-500 selection:text-emerald-900">
-                      Photos
-                    </h1>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5">
-                      {photosAnime?.map((data, index) => (
-                        <ParallaxCardImage
-                          image={data?.webp?.large_image_url}
-                          alt={`gambar ${index + 1}`}
-                          key={index}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <p className="text-md md:text-lg text-justify md:text-left selection:bg-green-500 selection:text-green-900">
-                    No photos.
-                  </p>
-                )}
               </>
             )}
           </div>
         </>
       )}
-    </section>
+    </LayoutDetailPage>
   );
 };
 

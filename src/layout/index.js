@@ -2,7 +2,7 @@ import Head from "next/head";
 import PropTypes from "prop-types";
 
 const Layout = ({ children }) => (
-  <div>
+  <>
     <Head>
       <title>Hibike! Euphonium</title>
       <meta name="description" content="Hibike! Euphonium" />
@@ -20,7 +20,7 @@ const Layout = ({ children }) => (
       />
     </Head>
     <main>{children}</main>
-  </div>
+  </>
 );
 
 Layout.propTypes = {

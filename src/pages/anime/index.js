@@ -16,7 +16,7 @@ export const getServerSideProps = async () => {
 const Anime = ({ jikanAnime }) => (
   <section className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800 py-12 min-h-screen">
     <div className="container px-0 lg:px-4">
-      <TitleSection>Anime</TitleSection>
+      <TitleSection centerText>Anime</TitleSection>
       {jikanAnime ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:gap-6">
           {jikanAnime.map(({ mal_id, images, title, score }) => {
@@ -25,7 +25,7 @@ const Anime = ({ jikanAnime }) => (
             return (
               <MainCard
                 key={mal_id}
-                path="anime"
+                path={`/anime/${mal_id}/details`}
                 id={mal_id}
                 image={images?.webp?.large_image_url}
                 title={title}

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import action from "../../action";
+import action from "../../../../action";
 import {
   ErrorMessage,
   Loading,
@@ -9,7 +9,7 @@ import {
   ParallaxImage,
   Synopsis,
   Text,
-} from "../../components";
+} from "../../../../components";
 
 const { getDetailCharacter, getPhotoCharacter } = action;
 
@@ -91,7 +91,7 @@ const DetailCharacter = () => {
                     {detailCharacter?.anime.map((data) => (
                       <MainCard
                         key={data?.anime?.mal_id}
-                        path="anime"
+                        path={`/anime/${data?.anime?.mal_id}/details`}
                         id={data?.anime?.mal_id}
                         image={data?.anime?.images?.webp?.large_image_url}
                         title={data?.anime?.title}

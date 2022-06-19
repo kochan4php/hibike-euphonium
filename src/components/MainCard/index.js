@@ -16,7 +16,7 @@ const MainCard = ({
   fontsize,
   centerText,
 }) => (
-  <Card bgimage={image} path={`/${path}/${id}`}>
+  <Card bgimage={image} path={path}>
     <CardImage src={image} alt={title ? title : "Gambar"} className="rounded" />
     {score && <FloatingRating rating={score} />}
     {title ? (

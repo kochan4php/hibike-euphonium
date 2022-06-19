@@ -1,5 +1,27 @@
 import JIKAN_API from "../config/Jikan";
 
+const getAnimeVideos = async (id) => {
+  const request = await fetch(`${JIKAN_API}/anime/${id}/videos`);
+
+  if (request.ok) {
+    const response = await request.json();
+    return response.data;
+  } else {
+    return;
+  }
+};
+
+const getCharacters = async (id) => {
+  const request = await fetch(`${JIKAN_API}/anime/${id}/characters`);
+
+  if (request.ok) {
+    const response = await request.json();
+    return response.data;
+  } else {
+    return;
+  }
+};
+
 const getDetailAnime = async (id) => {
   const request = await fetch(`${JIKAN_API}/anime/${id}/full`);
 
@@ -67,6 +89,8 @@ const getPhotoCharacter = async (id) => {
 };
 
 export default {
+  getAnimeVideos,
+  getCharacters,
   getDetailAnime,
   getDetailNovel,
   getDetailCharacter,
