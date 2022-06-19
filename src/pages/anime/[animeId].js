@@ -45,7 +45,7 @@ const DetailAnime = () => {
 
   return (
     <section className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800 text-white pt-16 pb-6 min-h-screen">
-      <div className="container">
+      <div className="container flex justify-start my-5 xl:px-0">
         <Button onClick={handleClick}>&laquo;&nbsp;Back</Button>
       </div>
 
@@ -76,18 +76,22 @@ const DetailAnime = () => {
                   </div>
                   <div className="flex flex-col justify-start md:col-start-2 md:col-end-4 p-4 md:py-0">
                     {detailAnime?.score && (
-                      <span className="gap-3 mt-2 md:mt-0 md:mb-4 text-2xl md:text-xl lg:text-2xl flex items-center selection:bg-emerald-500 selection:text-emerald-900">
+                      <span className="gap-3 mt-3 md:mt-0 md:mb-4 text-2xl md:text-xl lg:text-2xl flex items-center selection:bg-emerald-500 selection:text-emerald-900">
                         <span className="text-3xl text-yellow-500">⭐</span>{" "}
                         <span>{detailAnime?.score}</span>
                       </span>
                     )}
-                    <h1 className="text-2xl lg:text-3xl font-semibold my-8 md:my-0 md:mb-5 selection:bg-violet-500 selection:text-violet-900">
+                    <h1 className="text-2xl lg:text-3xl xl:text-4xl font-semibold my-6 md:my-0 md:mb-5 selection:bg-violet-500 selection:text-violet-900">
                       {detailAnime?.title}
                     </h1>
                     <div className="text-lg selection:bg-pink-500 selection:text-pink-900">
+                      <Text category="Kanji">
+                        {detailAnime?.title_japanese}
+                      </Text>
                       <Text category="Release">
                         {detailAnime?.aired?.string}
                       </Text>
+                      <Text category="Rank">{detailAnime?.rank}</Text>
                       <Text category="Genre">
                         {detailAnime?.themes?.map((genre, index) => {
                           const coma =
@@ -103,7 +107,10 @@ const DetailAnime = () => {
                           );
                         })}
                       </Text>
+                      <Text category="Type">{detailAnime?.type}</Text>
                       <Text category="Duration">{detailAnime?.duration}</Text>
+                      <Text category="Episodes">{detailAnime?.episodes}</Text>
+                      <Text category="Favorite">{detailAnime?.favorites}</Text>
                       <Text category="Studio">
                         {detailAnime?.studios?.map((studio) => studio.name)}
                       </Text>
@@ -119,11 +126,11 @@ const DetailAnime = () => {
                 </Synopsis>
 
                 {photosAnime !== [] ? (
-                  <div className="mt-8 md:pt-8 md:px-10 lg:px-16">
+                  <div className="mt-10 lg:mt-0 md:pt-10 lg:pt-16">
                     <h1 className="text-3xl md:text-4xl mb-7 selection:bg-emerald-500 selection:text-emerald-900">
                       Photos
                     </h1>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5">
                       {photosAnime?.map((data, index) => (
                         <ParallaxCardImage
                           image={data?.webp?.large_image_url}

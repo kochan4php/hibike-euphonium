@@ -25,7 +25,7 @@ const Novel = ({ jikanNovel }) => (
             return (
               <MainCard
                 key={mal_id}
-                path="anime"
+                path="novel"
                 id={mal_id}
                 image={images?.webp?.large_image_url}
                 title={title}

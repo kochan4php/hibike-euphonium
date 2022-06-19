@@ -28,8 +28,6 @@ const DetailCharacter = () => {
     const getPhotosCharacter = await getPhotoCharacter(id);
 
     if (getDataCharacter && getPhotosCharacter) {
-      console.log(getDataCharacter);
-      console.log(getPhotosCharacter);
       setDetailCharacter(getDataCharacter);
       setPhotosCharacter(getPhotosCharacter);
       setIsError(false);
@@ -48,7 +46,7 @@ const DetailCharacter = () => {
 
   return (
     <section className="min-w-full bg-gradient-to-tl from-slate-800 via-slate-700 to-slate-800 text-white pt-16 pb-6 min-h-screen">
-      <div className="container">
+      <div className="container flex justify-start my-5 xl:px-0">
         <Button onClick={handleClick}>&laquo;&nbsp;Back</Button>
       </div>
 
@@ -70,7 +68,7 @@ const DetailCharacter = () => {
                   </div>
                   <div className="flex items-center justify-start md:col-start-2 md:col-end-4 p-4 md:py-0">
                     <div className="flex flex-col">
-                      <h1 className="text-2xl lg:text-3xl font-semibold mt-8 mb-5 md:mt-0 md:mb-5 selection:bg-violet-500 selection:text-violet-900">
+                      <h1 className="text-2xl lg:text-3xl xl:text-4xl font-semibold my-6 md:my-0 md:mb-5 selection:bg-violet-500 selection:text-violet-900">
                         {detailCharacter?.name}
                       </h1>
                       <div className="text-lg selection:bg-pink-500 selection:text-pink-900">
