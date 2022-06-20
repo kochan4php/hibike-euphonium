@@ -16,13 +16,13 @@ const Pictures = () => {
   const router = useRouter();
   const { animeId } = router.query;
 
-  const [photosAnime, setPhotosAnime] = useState([]);
+  const [pictures, setPictures] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   const getData = async (id) => {
-    const getPhotosAnime = await getPhotoAnime(id);
-    if (getPhotosAnime) setPhotosAnime(getPhotosAnime);
+    const getPictures = await getPhotoAnime(id);
+    if (getPictures) setPictures(getPictures);
     else setIsError(true);
     setIsLoading(false);
   };
@@ -45,9 +45,9 @@ const Pictures = () => {
               <ErrorMessage message="Kebanyakan Request di API nya" />
             ) : (
               <>
-                {photosAnime ? (
+                {pictures ? (
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5">
-                    {photosAnime?.map((data, index) => (
+                    {pictures?.map((data, index) => (
                       <ParallaxCardImage
                         image={data?.webp?.large_image_url}
                         alt={`gambar ${index + 1}`}

@@ -18,13 +18,13 @@ const DetailAnime = () => {
   const { animeId } = router.query;
   const routes = routesAnime(animeId);
 
-  const [detailAnime, setDetailAnime] = useState([]);
+  const [detailData, setDetailData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   const getData = async (id) => {
-    const getDataAnime = await getDetailAnime(id);
-    if (getDataAnime) setDetailAnime(getDataAnime);
+    const getDetailData = await getDetailAnime(id);
+    if (getDetailData) setDetailData(getDetailData);
     else setIsError(true);
     setIsLoading(false);
   };
@@ -39,10 +39,10 @@ const DetailAnime = () => {
         <Loading />
       ) : (
         <>
-          {detailAnime?.trailer?.embed_url && (
+          {detailData?.trailer?.embed_url && (
             <div className="container p-0">
               <iframe
-                src={detailAnime?.trailer?.embed_url}
+                src={detailData?.trailer?.embed_url}
                 width="100%"
                 className="aspect-[18/10] md:aspect-[18/8] selection:bg-violet-500"
               ></iframe>
@@ -56,31 +56,29 @@ const DetailAnime = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3">
                   <div className="flex justify-center items-center selection:bg-pink-500">
                     <ParallaxImage
-                      image={detailAnime?.images?.webp?.large_image_url}
-                      alt={detailAnime?.title}
+                      image={detailData?.images?.webp?.large_image_url}
+                      alt={detailData?.title}
                     />
                   </div>
                   <div className="flex flex-col justify-start md:col-start-2 md:col-end-4 p-4 md:py-0">
-                    {detailAnime?.score && (
+                    {detailData?.score && (
                       <span className="gap-3 mt-3 md:mt-0 md:mb-4 text-2xl md:text-xl lg:text-2xl flex items-center selection:bg-emerald-500 selection:text-emerald-900">
                         <span className="text-3xl text-yellow-500">⭐</span>{" "}
-                        <span>{detailAnime?.score}</span>
+                        <span>{detailData?.score}</span>
                       </span>
                     )}
                     <h1 className="text-2xl lg:text-3xl xl:text-4xl font-semibold my-6 md:my-0 md:mb-5 selection:bg-violet-500 selection:text-violet-900">
-                      {detailAnime?.title}
+                      {detailData?.title}
                     </h1>
                     <div className="text-lg selection:bg-pink-500 selection:text-pink-900">
                       <Text category="Release">
-                        {detailAnime?.aired?.string}
+                        {detailData?.aired?.string}
                       </Text>
-                      <Text category="Rank">{detailAnime?.rank}</Text>
+                      <Text category="Rank">{detailData?.rank}</Text>
                       <Text category="Genre">
-                        {detailAnime?.themes?.map((genre, index) => {
+                        {detailData?.themes?.map((genre, index) => {
                           const coma =
-                            detailAnime?.themes.length - 1 === index
-                              ? ""
-                              : ", ";
+                            detailData?.themes.length - 1 === index ? "" : ", ";
 
                           return (
                             <span key={index}>
@@ -90,20 +88,18 @@ const DetailAnime = () => {
                           );
                         })}
                       </Text>
-                      <Text category="Type">{detailAnime?.type}</Text>
-                      <Text category="Duration">{detailAnime?.duration}</Text>
+                      <Text category="Type">{detailData?.type}</Text>
+                      <Text category="Duration">{detailData?.duration}</Text>
                       <Text category="Studio">
-                        {detailAnime?.studios?.map((studio) => studio.name)}
+                        {detailData?.studios?.map((studio) => studio.name)}
                       </Text>
-                      <Text category="Status"> {detailAnime?.status}</Text>
+                      <Text category="Status"> {detailData?.status}</Text>
                     </div>
                   </div>
                 </div>
 
                 <Synopsis>
-                  {detailAnime?.synopsis
-                    ? detailAnime?.synopsis
-                    : "No synopsis."}
+                  {detailData?.synopsis ? detailData?.synopsis : "No synopsis."}
                 </Synopsis>
               </>
             )}

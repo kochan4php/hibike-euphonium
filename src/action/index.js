@@ -22,6 +22,28 @@ const getCharacters = async (id) => {
   }
 };
 
+const getAnimeStats = async (id) => {
+  const request = await fetch(`${JIKAN_API}/anime/${id}/statistics`);
+
+  if (request.ok) {
+    const response = await request.json();
+    return response.data;
+  } else {
+    return;
+  }
+};
+
+const getAnimeReviews = async (id) => {
+  const request = await fetch(`${JIKAN_API}/anime/${id}/reviews`);
+
+  if (request.ok) {
+    const response = await request.json();
+    return response.data;
+  } else {
+    return;
+  }
+};
+
 const getDetailAnime = async (id) => {
   const request = await fetch(`${JIKAN_API}/anime/${id}/full`);
 
@@ -92,6 +114,8 @@ export default {
   getAnimeVideos,
   getCharacters,
   getDetailAnime,
+  getAnimeStats,
+  getAnimeReviews,
   getDetailNovel,
   getDetailCharacter,
   getPhotoAnime,
