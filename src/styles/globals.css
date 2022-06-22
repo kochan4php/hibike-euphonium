@@ -26,6 +26,10 @@
   .nav-detail::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
   }
+
+  progress {
+    @apply !rounded-full text-teal-500 bg-teal-500 accent-teal-500;
+  }
 }
 
 /* When Window On Scroll */
