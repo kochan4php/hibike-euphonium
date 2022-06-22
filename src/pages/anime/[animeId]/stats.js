@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import ProgressBar from "@ramonak/react-progress-bar";
 import action from "../../../action";
-import { ErrorMessage, Loading, TitleSection, Text } from "../../../components";
+import { ErrorMessage, Loading, Text, TitleSection } from "../../../components";
 import routesAnime from "../../../helper/_routesAnime";
 import LayoutDetailPage from "../../../layout/layoutDetailPage";
 
