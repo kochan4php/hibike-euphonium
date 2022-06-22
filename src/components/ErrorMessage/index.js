@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 const ErrorMessage = ({ message }) => (
-  <h1 className="text-xl md:text-2xl font-medium text-center">{message}</h1>
+  <h1 className="text-xl md:text-2xl font-medium">{message}</h1>
 );
 
 ErrorMessage.propTypes = {

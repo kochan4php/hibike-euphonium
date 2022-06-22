@@ -43,7 +43,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-transparent z-[999] fixed w-full transition-all duration-300 text-white border-b border-b-transparent">
-      <div className="container flex justify-between items-center py-1.5 relative">
+      <div className="container flex justify-between items-center py-1 lg:py-1.5 relative">
         <div className="selection:bg-purple-500 selection:text-purple-900">
           <Image
             src="/icon/logo-hibike-euphonium.png"
@@ -53,7 +53,7 @@ const Navbar = () => {
           />
         </div>
 
-        <ul className="flex absolute md:static text-lg font-semibold right-0 flex-col md:flex-row bg-slate-800 md:bg-transparent md:border-none md:h-0 md:z-[999] md:backdrop-blur-none backdrop-blur-lg h-[60vh] top-[75px] bottom-0 justify-evenly md:justify-between items-center -z-[199] w-[60%] md:w-[50%] lg:w-[40%] xl:w-[30%] transition-all duration-300 md:rounded-none rounded-md border border-slate-600 navbar-nav">
+        <ul className="flex absolute md:static text-lg font-semibold right-0 flex-col md:flex-row bg-slate-800 md:bg-transparent md:border-none md:h-0 md:z-[999] md:backdrop-blur-none backdrop-blur-lg h-[50vh] top-[75px] bottom-0 justify-evenly md:justify-between items-center -z-[199] w-[60%] md:w-[50%] lg:w-[40%] xl:w-[30%] transition-all duration-300 md:rounded-none rounded-md border border-slate-600 navbar-nav">
           {routes.map(({ path, name }, index) => (
             <li key={index}>
               <Link href={path}>

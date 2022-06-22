@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const Text = ({ children, category }) => (
   <p className="text-base md:text-lg">
-    <span className="font-semibold my-[2px] inline-block">
+    <span className="font-semibold my-1 inline-block">
       {category}&nbsp;:&nbsp;
     </span>
     {children}
