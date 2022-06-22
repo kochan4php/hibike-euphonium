@@ -28,7 +28,20 @@
   }
 
   progress {
-    @apply !rounded-full text-teal-500 bg-teal-500 accent-teal-500;
+    border: none;
+    height: 15px;
+  }
+  progress::-webkit-progress-bar {
+    border: none;
+    height: 15px;
+  }
+  progress::-webkit-progress-value {
+    border: none;
+    height: 15px;
+  }
+  progress::-moz-progress-bar {
+    border: none;
+    height: 15px;
   }
 }
 

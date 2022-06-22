@@ -69,7 +69,8 @@ const Stats = () => {
                         <span>{data?.score}. </span>
                         <progress
                           value={data?.percentage}
-                          className="w-1/3 xl:w-2/3 text-teal-500 h-3"
+                          max="100"
+                          className="w-1/3 xl:w-2/3 text-teal-500"
                         ></progress>
                         <span className="text-sm">
                           {data?.percentage} % ({data?.votes} votes)
