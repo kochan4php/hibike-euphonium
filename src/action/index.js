@@ -1,116 +1,45 @@
-import JIKAN_API from "../config/Jikan";
+import JIKAN_API from "@/config/Jikan";
+import axios from "axios";
 
-const getAnimeVideos = async (id) => {
-  const request = await fetch(`${JIKAN_API}/anime/${id}/videos`);
+const { get } = axios;
 
-  if (request.ok) {
-    const response = await request.json();
-    return response.data;
-  } else {
-    return;
-  }
-};
+const getAnimeHibikeEuphonium = async () =>
+  await get(`${JIKAN_API}/anime?q=hibike%20euphonium`);
 
-const getCharacters = async (id) => {
-  const request = await fetch(`${JIKAN_API}/anime/${id}/characters`);
+const getNovelHibikeEuphonium = async () =>
+  await get(`${JIKAN_API}/manga?q=hibike%20euphonium`);
 
-  if (request.ok) {
-    const response = await request.json();
-    return response.data;
-  } else {
-    return;
-  }
-};
+const getAnimeVideos = async (id) =>
+  await get(`${JIKAN_API}/anime/${id}/videos`);
 
-const getAnimeStats = async (id) => {
-  const request = await fetch(`${JIKAN_API}/anime/${id}/statistics`);
+const getCharacters = async (id) =>
+  await get(`${JIKAN_API}/anime/${id}/characters`);
 
-  if (request.ok) {
-    const response = await request.json();
-    return response.data;
-  } else {
-    return;
-  }
-};
+const getAnimeStats = async (id) =>
+  await get(`${JIKAN_API}/anime/${id}/statistics`);
 
-const getAnimeReviews = async (id) => {
-  const request = await fetch(`${JIKAN_API}/anime/${id}/reviews`);
+const getAnimeReviews = async (id) =>
+  await get(`${JIKAN_API}/anime/${id}/reviews`);
 
-  if (request.ok) {
-    const response = await request.json();
-    return response.data;
-  } else {
-    return;
-  }
-};
+const getDetailAnime = async (id) => await get(`${JIKAN_API}/anime/${id}/full`);
 
-const getDetailAnime = async (id) => {
-  const request = await fetch(`${JIKAN_API}/anime/${id}/full`);
+const getDetailNovel = async (id) => await get(`${JIKAN_API}/manga/${id}/full`);
 
-  if (request.ok) {
-    const response = await request.json();
-    return response.data;
-  } else {
-    return;
-  }
-};
+const getDetailCharacter = async (id) =>
+  await get(`${JIKAN_API}/characters/${id}/full`);
 
-const getDetailNovel = async (id) => {
-  const request = await fetch(`${JIKAN_API}/manga/${id}/full`);
+const getPhotoAnime = async (id) =>
+  await get(`${JIKAN_API}/anime/${id}/pictures`);
 
-  if (request.ok) {
-    const response = await request.json();
-    return response.data;
-  } else {
-    return;
-  }
-};
+const getPhotoNovel = async (id) =>
+  await get(`${JIKAN_API}/manga/${id}/pictures`);
 
-const getDetailCharacter = async (id) => {
-  const request = await fetch(`${JIKAN_API}/characters/${id}/full`);
+const getPhotoCharacter = async (id) =>
+  await get(`${JIKAN_API}/characters/${id}/pictures`);
 
-  if (request.ok) {
-    const response = await request.json();
-    return response.data;
-  } else {
-    return;
-  }
-};
-
-const getPhotoAnime = async (id) => {
-  const request = await fetch(`${JIKAN_API}/anime/${id}/pictures`);
-
-  if (request.ok) {
-    const response = await request.json();
-    return response.data;
-  } else {
-    return;
-  }
-};
-
-const getPhotoNovel = async (id) => {
-  const request = await fetch(`${JIKAN_API}/manga/${id}/pictures`);
-
-  if (request.ok) {
-    const response = await request.json();
-    return response.data;
-  } else {
-    return;
-  }
-};
-
-const getPhotoCharacter = async (id) => {
-  const request = await fetch(`${JIKAN_API}/characters/${id}/pictures`);
-
-  if (request.ok) {
-    const response = await request.json();
-    return response.data;
-  } else {
-    return;
-  }
-};
-
-export default {
+export {
+  getAnimeHibikeEuphonium,
+  getNovelHibikeEuphonium,
   getAnimeVideos,
   getCharacters,
   getDetailAnime,

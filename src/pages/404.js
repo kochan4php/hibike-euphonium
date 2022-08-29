@@ -1,5 +1,5 @@
+import { Button } from "@/components";
 import { useRouter } from "next/router";
-import { Button } from "../components";
 
 const NotFound = () => {
   const router = useRouter();

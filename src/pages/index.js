@@ -1,6 +1,6 @@
+import { About, Intro } from "@/components";
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
-import { About, Intro } from "../components";
 
 const Home = () => {
   const text = useRef(null);

@@ -1,3 +1,4 @@
+import { Footer, Navbar } from "@/components";
 import Head from "next/head";
 import PropTypes from "prop-types";
 
@@ -14,12 +15,12 @@ const Layout = ({ children }) => (
         content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
       />
       <meta name="keywords" content="Hibike Euphonium" />
-      <link
-        href="https://fonts.googleapis.com/css?family=Lexend+Deca:100,200,300,regular,500,600,700,800,900"
-        rel="stylesheet"
-      />
     </Head>
-    <main>{children}</main>
+    <div className="min-h-screen flex flex-col justify-between">
+      <Navbar />
+      <main>{children}</main>
+      <Footer />
+    </div>
   </>
 );
 

@@ -1,46 +1,62 @@
-import { ErrorMessage, MainCard, TitleSection } from "../../components";
-import JIKAN_API from "../../config/Jikan";
+import { getNovelHibikeEuphonium } from "@/action";
+import { ErrorMessage, Loading, MainCard, TitleSection } from "@/components";
+import { RenderIfFalse, RenderIfTrue } from "@/utils";
+import { useEffect, useState } from "react";
 
-export const getServerSideProps = async () => {
-  const requestAnime = await fetch(`${JIKAN_API}/manga?q=hibike%20euphonium`);
-  const responseAnime = await requestAnime.json();
-  const jikanNovel = await responseAnime.data;
+const Novel = () => {
+  const [novel, setNovel] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  return {
-    props: {
-      jikanNovel,
-    },
+  const getData = async () => {
+    const res = await getNovelHibikeEuphonium();
+
+    if (res.status === 200) {
+      if (res.data?.success !== false) {
+        setNovel(res.data.data);
+        setIsLoading(false);
+      }
+    }
   };
-};
 
-const Novel = ({ jikanNovel }) => (
-  <section className="min-w-full bg-gradient-to-tl from-slate-900 via-slate-800 to-slate-900 py-12 min-h-screen">
-    <div className="container px-0 lg:px-4">
-      <TitleSection centerText>Novel</TitleSection>
-      {jikanNovel ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:gap-6">
-          {jikanNovel.map(({ mal_id, images, title, score }) => {
-            if (mal_id === 129104 || mal_id === 10404) return;
+  useEffect(() => {
+    getData();
+  }, []);
 
-            return (
-              <MainCard
-                key={mal_id}
-                path={`/novel/${mal_id}`}
-                id={mal_id}
-                image={images?.webp?.large_image_url}
-                title={title}
-                score={score}
-                py="py-5"
-                fontsize="text-base"
-              />
-            );
-          })}
+  return (
+    <section className="min-w-full py-7">
+      <RenderIfTrue isTrue={isLoading}>
+        <Loading />
+      </RenderIfTrue>
+      <RenderIfFalse isFalse={isLoading}>
+        <div className="container px-0 lg:px-4">
+          <TitleSection centerText>Novel</TitleSection>
+          <RenderIfTrue isTrue={novel.length > 0}>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:gap-6 mt-7">
+              {novel.map(({ mal_id, images, title, score }) => {
+                if (mal_id === 129104 || mal_id === 10404) return;
+
+                return (
+                  <MainCard
+                    key={mal_id}
+                    path={`/novel/${mal_id}`}
+                    id={mal_id}
+                    image={images?.webp?.large_image_url}
+                    title={title}
+                    score={score}
+                    py="py-5"
+                    fontsize="text-base"
+                  />
+                );
+              })}
+            </div>
+          </RenderIfTrue>
+          <RenderIfFalse isFalse={novel.length > 0}>
+            <ErrorMessage message="Gagal mengambil data dari API, coba refresh ulang browsernya" />
+          </RenderIfFalse>
         </div>
-      ) : (
-        <ErrorMessage message="Gagal mengambil data dari API, coba refresh ulang browsernya" />
-      )}
-    </div>
-  </section>
-);
+      </RenderIfFalse>
+    </section>
+  );
+};
 
 export default Novel;
