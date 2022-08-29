@@ -16,5 +16,7 @@ yarn install #or npm install
 yarn dev #or npm run dev
 ```
 
-### Semoga kalian suka :D
-![Hibike](https://c.tenor.com/k2W0z43OkgcAAAAC/asuka-tanaka-kumiko-oumae.gif)
+## Semoga kalian suka :D
+<p align="center">
+  <img src="https://c.tenor.com/k2W0z43OkgcAAAAC/asuka-tanaka-kumiko-oumae.gif" />
+</p>
