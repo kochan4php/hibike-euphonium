@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import action from "../../../action";
 import LayoutDetailPage from "../../../layout/layoutDetailPage";
 import routesAnime from "../../../helper/_routesAnime";
 import {
@@ -9,8 +8,7 @@ import {
   TitleSection,
   ParallaxCardImage,
 } from "../../../components";
-
-const { getPhotoAnime } = action;
+import { getPhotoAnime } from "@/action";
 
 const Pictures = () => {
   const router = useRouter();

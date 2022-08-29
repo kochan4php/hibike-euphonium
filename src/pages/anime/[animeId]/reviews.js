@@ -1,11 +1,9 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import action from "../../../action";
 import { ErrorMessage, Loading, TitleSection } from "../../../components";
 import routesAnime from "../../../helper/_routesAnime";
 import LayoutDetailPage from "../../../layout/layoutDetailPage";
-
-const { getAnimeReviews } = action;
+import { getAnimeReviews } from "@/action";
 
 const Reviews = () => {
   const router = useRouter();

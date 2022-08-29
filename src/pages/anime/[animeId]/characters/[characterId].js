@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import action from "../../../../action";
 import {
   ErrorMessage,
   Loading,
@@ -10,8 +9,7 @@ import {
   Synopsis,
   Text,
 } from "../../../../components";
-
-const { getDetailCharacter, getPhotoCharacter } = action;
+import { getDetailCharacter, getPhotoCharacter } from "@/action";
 
 const DetailCharacter = () => {
   const router = useRouter();

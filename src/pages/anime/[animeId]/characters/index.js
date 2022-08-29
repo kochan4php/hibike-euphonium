@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import action from "../../../../action";
 import {
   ErrorMessage,
   Loading,
@@ -9,8 +8,7 @@ import {
 } from "../../../../components";
 import LayoutDetailPage from "../../../../layout/layoutDetailPage";
 import routesAnime from "../../../../helper/_routesAnime";
-
-const { getCharacters } = action;
+import { getCharacters } from "@/action";
 
 const Characters = () => {
   const router = useRouter();

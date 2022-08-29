@@ -10,8 +10,7 @@ import {
 } from "../../../components";
 import LayoutDetailPage from "../../../layout/layoutDetailPage";
 import routesAnime from "../../../helper/_routesAnime";
-
-const { getDetailAnime } = action;
+import { getDetailAnime } from "@/action";
 
 const DetailAnime = () => {
   const router = useRouter();

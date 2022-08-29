@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import action from "../../action";
 import {
   ErrorMessage,
   Loading,
@@ -11,8 +10,7 @@ import {
   Text,
 } from "../../components";
 import createRoute from "../../helper/createRoute";
-
-const { getDetailNovel, getPhotoNovel } = action;
+import { getDetailNovel, getPhotoNovel } from "@/action";
 
 const routes = [
   createRoute("/", "Details"),
