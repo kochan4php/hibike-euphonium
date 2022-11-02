@@ -1,6 +1,6 @@
+import { getDetailAnime } from "@/action";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import action from "../../../action";
 import {
   ErrorMessage,
   Loading,
@@ -8,9 +8,8 @@ import {
   Synopsis,
   Text,
 } from "../../../components";
-import LayoutDetailPage from "../../../layout/layoutDetailPage";
 import routesAnime from "../../../helper/_routesAnime";
-import { getDetailAnime } from "@/action";
+import LayoutDetailPage from "../../../layout/layoutDetailPage";
 
 const DetailAnime = () => {
   const router = useRouter();

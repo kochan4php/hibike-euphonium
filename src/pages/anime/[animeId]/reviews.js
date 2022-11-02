@@ -1,9 +1,9 @@
+import { getAnimeReviews } from "@/action";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { ErrorMessage, Loading, TitleSection } from "../../../components";
 import routesAnime from "../../../helper/_routesAnime";
 import LayoutDetailPage from "../../../layout/layoutDetailPage";
-import { getAnimeReviews } from "@/action";
 
 const Reviews = () => {
   const router = useRouter();

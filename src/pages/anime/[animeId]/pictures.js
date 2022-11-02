@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import LayoutDetailPage from "../../../layout/layoutDetailPage";
-import routesAnime from "../../../helper/_routesAnime";
-import {
-  Loading,
-  ErrorMessage,
-  TitleSection,
-  ParallaxCardImage,
-} from "../../../components";
 import { getPhotoAnime } from "@/action";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import {
+  ErrorMessage,
+  Loading,
+  ParallaxCardImage,
+  TitleSection,
+} from "../../../components";
+import routesAnime from "../../../helper/_routesAnime";
+import LayoutDetailPage from "../../../layout/layoutDetailPage";
 
 const Pictures = () => {
   const router = useRouter();
