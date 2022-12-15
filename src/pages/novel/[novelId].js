@@ -33,8 +33,8 @@ const DetailNovel = () => {
     const getPhotosNovel = await getPhotoNovel(id);
 
     if (getDataNovel && getPhotosNovel) {
-      setDetailNovel(getDataNovel);
-      setPhotosNovel(getPhotosNovel);
+      setDetailNovel(getDataNovel.data.data);
+      setPhotosNovel(getPhotosNovel.data.data);
       setIsError(false);
     } else {
       setIsError(true);
@@ -82,7 +82,7 @@ const DetailNovel = () => {
                       </Text>
                       <Text category="Rank">{detailNovel?.rank}</Text>
                       <Text category="Genre">
-                        {detailNovel?.themes.map((genre, index) => {
+                        {detailNovel?.themes?.map((genre, index) => {
                           const coma =
                             detailNovel?.themes.length - 1 === index
                               ? ""

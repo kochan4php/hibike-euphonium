@@ -22,13 +22,14 @@ const DetailAnime = () => {
 
   const getData = async (id) => {
     const getDetailData = await getDetailAnime(id);
-    if (getDetailData) setDetailData(getDetailData);
+    if (getDetailData) setDetailData(getDetailData.data.data);
     else setIsError(true);
     setIsLoading(false);
   };
 
   useEffect(() => {
     getData(animeId);
+    console.log(detailData);
   }, [animeId]);
 
   return (
